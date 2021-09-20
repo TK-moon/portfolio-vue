@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&display=swap");
+
+:root {
+  --color-background: #ffffff;
+
+  --color-primary: #409eff;
+  --color-success: #67c23a;
+  --color-warning: #e6a23c;
+  --color-danger: #f56c6c;
+  --color-info: #909399;
+
+  --color-primary-text: #000000;
+  --color-main-text: #303133;
+  --color-regular-text: #606266;
+  --color-secondary-text: #909399;
+  --color-placeholder-text: #c0c4cc;
+}
+
+* {
+  font-family: "Noto Sans KR", "Nanum Gothic", "sans-serif";
+  font-display: swap;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
