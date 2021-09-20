@@ -1,11 +1,11 @@
 <template>
   <header>
     <nav>
-      <a id="logo" href="#main">TK</a>
+      <router-link id="logo" :to="{ hash: '#main' }">TK</router-link>
       <ol>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contacts">Contacts</a></li>
+        <li><router-link :to="{ hash: '#about' }">About</router-link></li>
+        <li><router-link :to="{ hash: '#projects' }">Projects</router-link></li>
+        <li><router-link :to="{ hash: '#contacts' }">Contacts</router-link></li>
       </ol>
     </nav>
   </header>
@@ -25,6 +25,10 @@ header {
   align-items: center;
   flex-direction: column;
   padding: 0 20px;
+  backdrop-filter: blur(3px);
+  @include mobile {
+    height: 60px;
+  }
   a {
     text-decoration: none;
     color: var(--color-primary-text);
@@ -45,7 +49,6 @@ nav {
     display: grid;
     margin: 0;
     padding: 0;
-    align-items: center;
     grid-auto-flow: column;
     list-style: none;
     gap: 25px;
