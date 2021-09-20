@@ -20,6 +20,8 @@
   font-family: "Noto Sans KR", "Nanum Gothic", "sans-serif";
   font-display: swap;
   box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
