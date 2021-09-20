@@ -1,11 +1,11 @@
 <template>
   <header>
     <nav>
-      <a id="logo" href="main">TK</a>
+      <a id="logo" href="#main">TK</a>
       <ol>
-        <li><a href="about">About</a></li>
-        <li><a href="projects">Projects</a></li>
-        <li><a href="contacts">Contacts</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contacts">Contacts</a></li>
       </ol>
     </nav>
   </header>
@@ -24,6 +24,7 @@ header {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding: 0 20px;
   a {
     text-decoration: none;
     color: var(--color-primary-text);
@@ -47,13 +48,13 @@ nav {
     align-items: center;
     grid-auto-flow: column;
     list-style: none;
-    gap: 30px;
+    gap: 25px;
     li {
       position: relative;
       &:before {
         content: "";
         position: absolute;
-        bottom: -5px;
+        bottom: -10px;
         left: 0;
         right: 0;
         width: 100%;
