@@ -20,6 +20,7 @@ export default {}
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	color: var(--color-primary-text);
 }
 #headLine {
 	font-size: 4vw;

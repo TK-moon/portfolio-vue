@@ -16,6 +16,16 @@
 	--color-placeholder-text: #c0c4cc;
 }
 
+.dark-mode {
+	--color-background: #242424;
+
+	--color-primary-text: #ffffff;
+	// --color-main-text: #303133;
+	// --color-regular-text: #606266;
+	// --color-secondary-text: #909399;
+	// --color-placeholder-text: #c0c4cc;
+}
+
 * {
 	font-family: "Noto Sans KR", "Nanum Gothic", "sans-serif";
 	font-display: swap;
