@@ -1,13 +1,13 @@
 <template>
-	<Index />
+	<Landing />
 </template>
 
 <script>
 import { defineComponent } from "vue"
-import index from "@/views/Landing/index"
+import Landing from "@/views/Landing/index"
 
 export default defineComponent({
-	components: { Index: index },
+	components: { Landing: Landing },
 	created() {
 		const theme = this.getOSColorTheme()
 		console.log(theme)
