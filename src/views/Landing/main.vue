@@ -5,7 +5,7 @@
 			<br />
 			<span id="name" class="text-bolder">문태경</span>입니다.
 		</h1>
-		<p id="keyword">Web Developer / Frontend / Backend</p>
+		<p id="keyword">Web Developer / Frontend</p>
 		<p id="hashtags">#반응형 #포트폴리오</p>
 	</section>
 </template>
