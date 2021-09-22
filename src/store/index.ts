@@ -1,8 +1,13 @@
 import { createStore } from "vuex"
 
-export default createStore({
-	state: {},
-	mutations: {},
-	actions: {},
-	modules: {},
+import { darkModeModule, darkModeModuleState } from "./modules/darkMode"
+
+export interface RootState {
+	darkModeModule: darkModeModuleState
+}
+
+export default createStore<RootState>({
+	modules: {
+		darkModeModule,
+	},
 })
