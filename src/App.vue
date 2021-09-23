@@ -3,22 +3,18 @@
 </template>
 
 <script>
-import { defineComponent } from "vue"
+import { defineComponent, computed } from "vue"
+import { useStore } from "vuex"
+
 import Landing from "@/views/Landing/index"
 
 export default defineComponent({
+	setup() {
+		const store = useStore()
+		const darkMode = computed(() => store.state.darkModeModule.darkMode)
+		return { darkMode }
+	},
 	components: { Landing: Landing },
-	created() {
-		const theme = this.getOSColorTheme()
-		console.log(theme)
-	},
-	methods: {
-		getOSColorTheme: () => {
-			return window.matchMedia("(prefers-color-scheme: dark)").matches
-				? "dark"
-				: "light"
-		},
-	},
 })
 </script>
 

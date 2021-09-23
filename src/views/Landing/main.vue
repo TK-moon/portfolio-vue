@@ -7,11 +7,53 @@
 		</h1>
 		<p id="keyword">Web Developer / Frontend</p>
 		<p id="hashtags">#반응형 #포트폴리오</p>
+		{{ this.darkMode }}
+		<Toggle v-model="darkModeToggle" />
 	</section>
 </template>
 
-<script>
-export default {}
+<script lang="ts">
+import { defineComponent, computed } from "vue"
+import { useStore } from "vuex"
+
+import Toggle from "@/components/Toggle.vue"
+
+export default defineComponent({
+	setup() {
+		const store = useStore()
+
+		const darkMode = computed(() => store.state.darkModeModule.darkMode)
+		const setDarkMode = (payload: { darkMode: boolean }) =>
+			store.commit("darkModeModule/SET_DARKMODE", payload)
+
+		return { darkMode, setDarkMode }
+	},
+	data() {
+		return {
+			darkModeToggle: this.darkMode,
+		}
+	},
+	components: {
+		Toggle: Toggle,
+	},
+	watch: {
+		darkModeToggle: function (nv) {
+			this.setDarkMode({ darkMode: nv })
+			nv
+				? document.getElementById("app")?.classList.add("dark-mode")
+				: document.getElementById("app")?.classList.remove("dark-mode")
+		},
+	},
+	created() {
+		this.initDarkMode()
+	},
+	methods: {
+		initDarkMode: function () {
+			this.darkMode &&
+				document.getElementById("app")?.classList.add("dark-mode")
+		},
+	},
+})
 </script>
 
 <style lang="scss" scoped>
