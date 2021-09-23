@@ -7,7 +7,7 @@
 		</h1>
 		<p id="keyword">Web Developer / Frontend</p>
 		<p id="hashtags">#반응형 #포트폴리오</p>
-		{{ this.darkMode }}
+		{{ this.colorTheme }}
 		<Toggle v-model="darkModeToggle" />
 	</section>
 </template>
@@ -22,15 +22,17 @@ export default defineComponent({
 	setup() {
 		const store = useStore()
 
-		const darkMode = computed(() => store.state.darkModeModule.darkMode)
-		const setDarkMode = (payload: { darkMode: boolean }) =>
-			store.commit("darkModeModule/SET_DARKMODE", payload)
+		const colorTheme = computed(() => store.state.colorThemeModule.colorTheme)
+		const setColorTheme = (payload: { colorTheme: string }) =>
+			store.commit("colorThemeModule/SET_COLOR_THEME", payload)
 
-		return { darkMode, setDarkMode }
+		const darkModeToggleInit = colorTheme.value === "dark"
+
+		return { colorTheme, setColorTheme, darkModeToggleInit }
 	},
 	data() {
 		return {
-			darkModeToggle: this.darkMode,
+			darkModeToggle: this.darkModeToggleInit,
 		}
 	},
 	components: {
@@ -38,7 +40,7 @@ export default defineComponent({
 	},
 	watch: {
 		darkModeToggle: function (nv) {
-			this.setDarkMode({ darkMode: nv })
+			this.setColorTheme({ colorTheme: nv ? "dark" : "light" })
 			nv
 				? document.getElementById("app")?.classList.add("dark-mode")
 				: document.getElementById("app")?.classList.remove("dark-mode")
@@ -49,7 +51,7 @@ export default defineComponent({
 	},
 	methods: {
 		initDarkMode: function () {
-			this.darkMode &&
+			this.colorTheme === "dark" &&
 				document.getElementById("app")?.classList.add("dark-mode")
 		},
 	},

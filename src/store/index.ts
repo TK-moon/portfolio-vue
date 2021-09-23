@@ -1,13 +1,13 @@
 import { createStore } from "vuex"
 
-import { darkModeModule, darkModeModuleState } from "./modules/darkMode"
+import { colorThemeModule, colorThemeState } from "./modules/colorTheme"
 
 export interface RootState {
-	darkModeModule: darkModeModuleState
+	colorThemeState: colorThemeState
 }
 
 export default createStore<RootState>({
 	modules: {
-		darkModeModule,
+		colorThemeModule,
 	},
 })

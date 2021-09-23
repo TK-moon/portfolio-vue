@@ -3,17 +3,10 @@
 </template>
 
 <script>
-import { defineComponent, computed } from "vue"
-import { useStore } from "vuex"
-
+import { defineComponent } from "vue"
 import Landing from "@/views/Landing/index"
 
 export default defineComponent({
-	setup() {
-		const store = useStore()
-		const darkMode = computed(() => store.state.darkModeModule.darkMode)
-		return { darkMode }
-	},
 	components: { Landing: Landing },
 })
 </script>
