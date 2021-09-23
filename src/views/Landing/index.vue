@@ -8,16 +8,17 @@
 	</main>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from "vue"
 import Header from "@/components/Header.vue"
 import Main from "./main.vue"
 
-export default {
+export default defineComponent({
 	components: {
 		Header,
 		Main,
 	},
-}
+})
 </script>
 
 <style lang="scss" scoped>
