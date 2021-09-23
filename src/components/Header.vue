@@ -25,7 +25,7 @@ header {
 	align-items: center;
 	flex-direction: column;
 	padding: 0 20px;
-	backdrop-filter: blur(3px);
+	backdrop-filter: blur(15px);
 	background-color: var(--header-background-color);
 	@include mobile {
 		height: 60px;
