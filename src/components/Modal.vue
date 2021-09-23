@@ -1,12 +1,14 @@
 <template>
 	<transition name="modal">
-		<div class="modal-backdrop" v-show="modelValue" @click="close">
-			<div class="modal-contents">asdf</div>
+		<div class="modal-backdrop" v-if="modelValue" @click="close">
+			<div class="modal-contents">
+				<slot></slot>
+			</div>
 		</div>
 	</transition>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent } from "vue"
 
 export default defineComponent({
@@ -17,12 +19,12 @@ export default defineComponent({
 		},
 	},
 	watch: {
-		modelValue(nv, ov) {
+		modelValue(nv: boolean) {
 			document.body.style.overflow = nv ? "hidden" : "scroll"
 		},
 	},
 	methods: {
-		close() {
+		close(): void {
 			this.$emit("update:modelValue", false)
 		},
 	},
@@ -43,15 +45,20 @@ export default defineComponent({
 	position: fixed;
 	height: 100vh;
 	width: 100vw;
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: var(--modal-backdrop-color);
+	backdrop-filter: blur(3px);
 	z-index: 100;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
+
 .modal-contents {
+	min-width: 320px;
+	padding: 10px;
 	width: 100px;
 	height: auto;
-	background-color: #fff;
+	background-color: var(--modal-background-color);
+	border-radius: 10px;
 }
 </style>
