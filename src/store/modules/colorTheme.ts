@@ -1,22 +1,33 @@
 import { Module } from "vuex"
 import { RootState } from "../index"
 
-export interface colorThemeState {
-	colorTheme: string
-}
+const DEFAULT_COLOR_THEME = "light-mode"
+const LOCAL_STORAGE_KEY = "COLOR_THEME"
 
-const OSDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
-	? "dark"
-	: "light"
+type colorThemeTypes = "light-mode" | "dark-mode" | "os-theme-mode"
+
+export interface colorThemeState {
+	colorTheme: colorThemeTypes
+}
 
 export const colorThemeModule: Module<colorThemeState, RootState> = {
 	namespaced: true,
 	state: {
-		colorTheme: OSDarkMode,
+		colorTheme:
+			(localStorage.getItem(LOCAL_STORAGE_KEY) as colorThemeTypes) ||
+			DEFAULT_COLOR_THEME,
 	},
 	mutations: {
-		SET_COLOR_THEME(state, payload) {
+		SET_COLOR_THEME(state, payload: colorThemeState) {
 			state.colorTheme = payload.colorTheme
+		},
+	},
+	actions: {
+		SET_COLOR_THEME_WITH_LOCALSTORAGE(state, payload: colorThemeState) {
+			localStorage.setItem(LOCAL_STORAGE_KEY, payload.colorTheme)
+			this.commit("colorThemeModule/SET_COLOR_THEME", {
+				colorTheme: payload.colorTheme,
+			})
 		},
 	},
 }
