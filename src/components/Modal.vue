@@ -1,6 +1,6 @@
 <template>
 	<transition name="modal">
-		<div class="modal-backdrop" v-if="modelValue" @click="close">
+		<div class="modal-backdrop" v-if="modelValue" @click.self="close">
 			<div class="modal-contents">
 				<slot></slot>
 			</div>
@@ -20,7 +20,7 @@ export default defineComponent({
 	},
 	watch: {
 		modelValue(nv: boolean) {
-			document.body.style.overflow = nv ? "hidden" : "scroll"
+			document.body.style.overflow = nv ? "hidden" : "unset"
 		},
 	},
 	methods: {
@@ -54,10 +54,11 @@ export default defineComponent({
 }
 
 .modal-contents {
-	min-width: 320px;
-	padding: 10px;
 	width: 100px;
 	height: auto;
+	min-width: 320px;
+	max-height: 90vh;
+	padding: 20px;
 	background-color: var(--modal-background-color);
 	border-radius: 10px;
 }
