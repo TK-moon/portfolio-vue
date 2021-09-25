@@ -24,14 +24,11 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	scroll-behavior: smooth;
+	transition: color 300ms ease-in-out 0s, background-color 300ms ease-in-out 0s;
 }
 
 body {
 	margin: 0;
-}
-
-#app {
-	transition: color 300ms ease-in-out 0s, background-color 300ms ease-in-out 0s;
 }
 
 p {

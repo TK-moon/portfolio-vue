@@ -33,8 +33,6 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-#app {
-}
 #themeProvider {
 	background-color: var(--background-color);
 }
