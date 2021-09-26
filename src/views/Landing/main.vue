@@ -3,12 +3,43 @@
 		<h1 id="headLine">
 			안녕하세요,
 			<br />
-			<span id="name" class="text-bolder">문태경</span>입니다.
+			<span id="name">문태경</span>입니다.
 		</h1>
 		<p id="keyword">Web Developer / Frontend</p>
 		<p id="hashtags">#반응형 #포트폴리오</p>
-		{{ this.colorTheme }}
-		<Toggle v-model="darkModeToggle" />
+		<br />
+		<font-awesome-icon
+			:icon="['fas', 'cog']"
+			size="lg"
+			@click="modalVisible = true"
+		/>
+		<Modal v-model="modalVisible">
+			<h1>테마 설정</h1>
+			<br />
+			<div class="modal-grid">
+				<ToggleRadio
+					v-model="colorThemeRadio"
+					value="light-mode"
+					name="color-theme"
+				>
+					라이트 모드
+				</ToggleRadio>
+				<ToggleRadio
+					v-model="colorThemeRadio"
+					value="dark-mode"
+					name="color-theme"
+				>
+					다크 모드
+				</ToggleRadio>
+				<ToggleRadio
+					v-model="colorThemeRadio"
+					value="os-theme-mode"
+					name="color-theme"
+				>
+					기기 테마
+				</ToggleRadio>
+			</div>
+		</Modal>
 	</section>
 </template>
 
@@ -16,38 +47,39 @@
 import { defineComponent, computed } from "vue"
 import { useStore } from "vuex"
 
-import Toggle from "@/components/Toggle.vue"
+import Modal from "@/components/Modal.vue"
+import ToggleRadio from "@/components/RadioToggle.vue"
 
 export default defineComponent({
+	components: {
+		Modal,
+		ToggleRadio,
+	},
 	setup() {
 		const store = useStore()
 
 		const colorTheme = computed(() => store.state.colorThemeModule.colorTheme)
 		const setColorTheme = (payload: { colorTheme: string }) =>
-			store.commit("colorThemeModule/SET_COLOR_THEME", payload)
+			store.dispatch(
+				"colorThemeModule/SET_COLOR_THEME_WITH_LOCALSTORAGE",
+				payload,
+			)
 
-		const darkModeToggleInit = colorTheme.value === "dark"
-
-		return { colorTheme, setColorTheme, darkModeToggleInit }
+		return { colorTheme, setColorTheme }
 	},
 	data() {
 		return {
-			darkModeToggle: this.darkModeToggleInit,
+			modalVisible: false,
+			colorThemeRadio: this.colorTheme,
 		}
 	},
-	components: {
-		Toggle: Toggle,
-	},
 	watch: {
-		darkModeToggle: function (nv) {
-			this.setColorTheme({ colorTheme: nv ? "dark" : "light" })
-			nv
-				? document.getElementById("app")?.classList.add("dark-mode")
-				: document.getElementById("app")?.classList.remove("dark-mode")
+		colorThemeRadio(nv) {
+			this.setColorTheme({ colorTheme: nv })
 		},
 	},
 	created() {
-		this.initDarkMode()
+		// this.initDarkMode()
 	},
 	methods: {
 		initDarkMode: function () {
@@ -96,5 +128,10 @@ export default defineComponent({
 	#name {
 		font-size: 13vw;
 	}
+}
+.modal-grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 10px;
 }
 </style>
