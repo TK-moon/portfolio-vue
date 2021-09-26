@@ -47,6 +47,8 @@
 import { defineComponent, computed } from "vue"
 import { useStore } from "vuex"
 
+import { getFirestore, getDocs, collection } from "firebase/firestore"
+
 import Modal from "@/components/Modal.vue"
 import ToggleRadio from "@/components/RadioToggle.vue"
 
@@ -79,9 +81,17 @@ export default defineComponent({
 		},
 	},
 	created() {
-		// this.initDarkMode()
+		this.test()
 	},
 	methods: {
+		async test() {
+			const db = getFirestore()
+			const querySnapshot = await getDocs(collection(db, "Projects"))
+			querySnapshot.forEach(doc => {
+				// doc.data() is never undefined for query doc snapshots
+				console.log(doc.id, " => ", doc.data())
+			})
+		},
 		initDarkMode: function () {
 			this.colorTheme === "dark" &&
 				document.getElementById("app")?.classList.add("dark-mode")
