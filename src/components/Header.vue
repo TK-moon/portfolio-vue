@@ -27,6 +27,7 @@ header {
 	padding: 0 20px;
 	backdrop-filter: blur(15px);
 	background-color: var(--header-background-color);
+	z-index: 800;
 	@include mobile {
 		height: 60px;
 	}
