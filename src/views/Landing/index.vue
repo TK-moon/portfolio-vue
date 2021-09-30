@@ -2,7 +2,7 @@
 	<Header />
 	<main>
 		<Main id="main" />
-		<section id="about">About</section>
+		<About id="about" />
 		<section id="projects">Projects</section>
 		<section id="contacts">Contact</section>
 	</main>
@@ -12,11 +12,13 @@
 import { defineComponent } from "vue"
 import Header from "@/components/Header.vue"
 import Main from "./main.vue"
+import About from "./About.vue"
 
 export default defineComponent({
 	components: {
 		Header,
 		Main,
+		About,
 	},
 })
 </script>
