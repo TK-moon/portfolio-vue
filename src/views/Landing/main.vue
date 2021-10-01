@@ -40,6 +40,7 @@
 				</ToggleRadio>
 			</div>
 		</Modal>
+		{{ scrollY }}
 	</section>
 </template>
 
@@ -51,6 +52,8 @@ import { getFirestore, getDocs, collection } from "firebase/firestore"
 
 import Modal from "@/components/Modal.vue"
 import ToggleRadio from "@/components/RadioToggle.vue"
+
+import useScrollY from "@/lib/scrollY"
 
 export default defineComponent({
 	components: {
@@ -66,8 +69,9 @@ export default defineComponent({
 				"colorThemeModule/SET_COLOR_THEME_WITH_LOCALSTORAGE",
 				payload,
 			)
+		const { scrollY } = useScrollY()
 
-		return { colorTheme, setColorTheme }
+		return { colorTheme, setColorTheme, scrollY }
 	},
 	data() {
 		return {
