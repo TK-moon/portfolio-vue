@@ -51,6 +51,7 @@ export default defineComponent({
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	z-index: 900;
 }
 
 .modal-contents {
