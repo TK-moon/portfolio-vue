@@ -19,6 +19,12 @@ export default defineComponent({})
 	max-width: 1200px;
 	margin: 0 auto;
 	padding: 100px 0;
+	@include tablet {
+		padding: 50px 20px;
+	}
+	@include mobile {
+		padding: 50px 20px;
+	}
 }
 .landing-sub-page-title {
 	color: var(--color-primary-text);
