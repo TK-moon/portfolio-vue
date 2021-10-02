@@ -1,11 +1,13 @@
 <template>
-	<transition name="modal">
-		<div class="modal-backdrop" v-if="modelValue" @click.self="close">
-			<div class="modal-contents">
-				<slot></slot>
+	<teleport to="#teleportRoot">
+		<transition name="modal">
+			<div class="modal-backdrop" v-if="modelValue" @click.self="close">
+				<div class="modal-contents">
+					<slot></slot>
+				</div>
 			</div>
-		</div>
-	</transition>
+		</transition>
+	</teleport>
 </template>
 
 <script lang="ts">
@@ -52,6 +54,7 @@ export default defineComponent({
 	justify-content: center;
 	align-items: center;
 	z-index: 900;
+	color: var(--color-primary-text);
 }
 
 .modal-contents {
