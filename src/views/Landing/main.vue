@@ -1,5 +1,5 @@
 <template>
-	<section>
+	<section ref="sectionRef">
 		<h1 id="headLine">
 			안녕하세요,
 			<br />
@@ -74,11 +74,13 @@ export default defineComponent({
 	setup() {
 		const { colorTheme, setColorTheme } = getColorThemeHandler()
 		const { scrollY } = useScrollY()
+		const sectionRef = ref<HTMLElement>()
 
 		return {
 			colorTheme,
 			setColorTheme,
 			scrollY,
+			sectionRef,
 		}
 	},
 	data() {
@@ -90,6 +92,18 @@ export default defineComponent({
 	watch: {
 		colorThemeRadio(nv) {
 			this.setColorTheme({ colorTheme: nv })
+		},
+		scrollY(nv) {
+			if (!this.sectionRef) return
+
+			const scrollHeight = this.sectionRef.offsetHeight / 3
+			const section = this.sectionRef.children[0] as HTMLLIElement
+			const percentage = Math.ceil((nv / scrollHeight) * 100)
+			if (nv > scrollHeight) {
+				section.style.opacity = "0"
+				return
+			}
+			section.style.opacity = (1 - percentage / 100).toString()
 		},
 	},
 	created() {
@@ -116,7 +130,7 @@ export default defineComponent({
 	justify-content: center;
 	color: var(--color-primary-text);
 
-	animation-name: fadeIn;
+	animation-name: fadeIn, slideUp;
 	animation-duration: 500ms;
 	animation-fill-mode: forwards;
 	animation-timing-function: ease-in-out;
@@ -124,6 +138,7 @@ export default defineComponent({
 #headLine {
 	font-size: 4vw;
 	letter-spacing: 2px;
+	transition: opacity 100ms linear;
 }
 #name {
 	font-size: 5vw;
@@ -156,14 +171,5 @@ export default defineComponent({
 	display: grid;
 	grid-template-columns: 1fr;
 	gap: 10px;
-}
-
-@keyframes fadeIn {
-	from {
-		opacity: 0;
-	}
-	to {
-		opacity: 1;
-	}
 }
 </style>

@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&display=swap");
 
+@import "./keyframes.scss";
+
 .os-theme-mode {
 	@media (prefers-color-scheme: light) {
 		@include lightmode;
