@@ -1,9 +1,9 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router"
 
-import Index from "@/views/Landing/index.vue"
+import Landing from "@/views/Landing/index.vue"
 
 const routes: Array<RouteRecordRaw> = [
-	{ path: "/", name: "Index", component: Index },
+	{ path: "/", name: "Landing", component: Landing },
 ]
 
 const router = createRouter({

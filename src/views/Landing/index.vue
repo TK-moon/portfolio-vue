@@ -1,5 +1,4 @@
 <template>
-	<Header />
 	<main>
 		<Main id="main" />
 		<About id="about" />
@@ -10,13 +9,11 @@
 
 <script lang="ts">
 import { defineComponent } from "vue"
-import Header from "@/components/Header.vue"
 import Main from "./main.vue"
 import About from "./About.vue"
 
 export default defineComponent({
 	components: {
-		Header,
 		Main,
 		About,
 	},
