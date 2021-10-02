@@ -53,7 +53,18 @@ import { getFirestore, getDocs, collection } from "firebase/firestore"
 import Modal from "@/components/Modal.vue"
 import ToggleRadio from "@/components/RadioToggle.vue"
 
-import useScrollY from "@/lib/scrollY"
+import useScrollY from "@/lib/useScrollY"
+
+const getColorThemeHandler = () => {
+	const store = useStore()
+	const colorTheme = computed(() => store.state.colorThemeModule.colorTheme)
+	const setColorTheme = (payload: { colorTheme: string }) =>
+		store.dispatch(
+			"colorThemeModule/SET_COLOR_THEME_WITH_LOCALSTORAGE",
+			payload,
+		)
+	return { colorTheme, setColorTheme }
+}
 
 export default defineComponent({
 	components: {
@@ -61,14 +72,7 @@ export default defineComponent({
 		ToggleRadio,
 	},
 	setup() {
-		const store = useStore()
-
-		const colorTheme = computed(() => store.state.colorThemeModule.colorTheme)
-		const setColorTheme = (payload: { colorTheme: string }) =>
-			store.dispatch(
-				"colorThemeModule/SET_COLOR_THEME_WITH_LOCALSTORAGE",
-				payload,
-			)
+		const { colorTheme, setColorTheme } = getColorThemeHandler()
 		const { scrollY } = useScrollY()
 
 		return {
