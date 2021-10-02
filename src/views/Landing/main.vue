@@ -45,7 +45,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from "vue"
+import { defineComponent, computed, ref } from "vue"
 import { useStore } from "vuex"
 
 import { getFirestore, getDocs, collection } from "firebase/firestore"
@@ -71,7 +71,11 @@ export default defineComponent({
 			)
 		const { scrollY } = useScrollY()
 
-		return { colorTheme, setColorTheme, scrollY }
+		return {
+			colorTheme,
+			setColorTheme,
+			scrollY,
+		}
 	},
 	data() {
 		return {
@@ -96,10 +100,6 @@ export default defineComponent({
 				console.log(doc.id, " => ", doc.data())
 			})
 		},
-		initDarkMode: function () {
-			this.colorTheme === "dark" &&
-				document.getElementById("app")?.classList.add("dark-mode")
-		},
 	},
 })
 </script>
@@ -111,6 +111,11 @@ export default defineComponent({
 	align-items: center;
 	justify-content: center;
 	color: var(--color-primary-text);
+
+	animation-name: fadeIn;
+	animation-duration: 500ms;
+	animation-fill-mode: forwards;
+	animation-timing-function: ease-in-out;
 }
 #headLine {
 	font-size: 4vw;
@@ -147,5 +152,14 @@ export default defineComponent({
 	display: grid;
 	grid-template-columns: 1fr;
 	gap: 10px;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }
 </style>
