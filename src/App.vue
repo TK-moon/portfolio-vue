@@ -11,11 +11,11 @@ import { defineComponent, computed } from "vue"
 import { useStore } from "vuex"
 
 import Header from "@/components/Header.vue"
-
 export default defineComponent({
 	setup() {
 		const store = useStore()
 		const colorTheme = computed(() => store.state.colorThemeModule.colorTheme)
+
 		return { colorTheme }
 	},
 	components: { Header },
