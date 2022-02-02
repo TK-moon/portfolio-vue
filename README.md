@@ -1,5 +1,7 @@
 # portfolio-vue
 
+## [@scroll-timeline 출시 후 재진행 예정]
+
 ## Portfolio 리팩토링
 
 Vanilla JS [Portfolio](https://github.com/TK-moon/Portfolio)를 Vue3 Typescript로 리팩토링
