@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router"
 
-import Landing from "@/views/Landing/index.vue"
+import Landing from "@/views/pages/Landing/index.vue"
 
 const routes: Array<RouteRecordRaw> = [
 	{ path: "/", name: "Landing", component: Landing },
