@@ -21,21 +21,17 @@ import { getAnalytics } from "firebase/analytics"
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-	apiKey: "AIzaSyCMF7y3qWrqURQ8uSNHoCJ96jiGb-b8FUI",
-	authDomain: "portfolio-9d477.firebaseapp.com",
-	projectId: "portfolio-9d477",
-	storageBucket: "portfolio-9d477.appspot.com",
-	messagingSenderId: "930006453501",
-	appId: "1:930006453501:web:b6cdd1ce3d91b31f4c8294",
-	measurementId: "G-0DP3KHFXMN",
+  apiKey: "AIzaSyCMF7y3qWrqURQ8uSNHoCJ96jiGb-b8FUI",
+  authDomain: "portfolio-9d477.firebaseapp.com",
+  projectId: "portfolio-9d477",
+  storageBucket: "portfolio-9d477.appspot.com",
+  messagingSenderId: "930006453501",
+  appId: "1:930006453501:web:b6cdd1ce3d91b31f4c8294",
+  measurementId: "G-0DP3KHFXMN",
 }
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig)
 getAnalytics(app)
 
-createApp(App)
-	.use(store)
-	.use(router)
-	.component("font-awesome-icon", FontAwesomeIcon)
-	.mount("#app")
+createApp(App).use(store).use(router).component("font-awesome-icon", FontAwesomeIcon).mount("#app")

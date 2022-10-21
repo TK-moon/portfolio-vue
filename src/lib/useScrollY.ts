@@ -1,8 +1,8 @@
 import { ref, onBeforeMount, onBeforeUnmount } from "vue"
-import { throttle } from "lodash"
+import throttle from "lodash/throttle"
 
 interface Ref<T> {
-	value: T
+  value: T
 }
 
 /**
@@ -12,27 +12,23 @@ interface Ref<T> {
  * @param wait Default 50
  * @returns window.pageYOffset || window.scrollY
  */
-const useScrollY = (
-	wait = 50,
-): { scrollY: Ref<number>; centerScrollY: Ref<number> } => {
-	const scrollPosition = window.pageYOffset || window.scrollY
-	const scrollY = ref(0)
-	const centerScrollY = ref(scrollPosition + window.innerHeight / 2)
+const useScrollY = (wait = 50): { scrollY: Ref<number>; centerScrollY: Ref<number> } => {
+  const scrollPosition = window.pageYOffset || window.scrollY
+  const scrollY = ref(0)
+  const centerScrollY = ref(scrollPosition + window.innerHeight / 2)
 
-	const onScroll = () => {
-		const scrollPosition = window.pageYOffset || window.scrollY
-		scrollY.value = scrollPosition // top
-		centerScrollY.value = scrollPosition + window.innerHeight / 2 // center of viewport
-	}
+  const onScroll = () => {
+    const scrollPosition = window.pageYOffset || window.scrollY
+    scrollY.value = scrollPosition // top
+    centerScrollY.value = scrollPosition + window.innerHeight / 2 // center of viewport
+  }
 
-	const handleDebouceScroll = throttle(onScroll, wait)
+  const handleDebouceScroll = throttle(onScroll, wait)
 
-	onBeforeMount(() => window.addEventListener("scroll", handleDebouceScroll))
-	onBeforeUnmount(() =>
-		window.removeEventListener("scroll", handleDebouceScroll),
-	)
+  onBeforeMount(() => window.addEventListener("scroll", handleDebouceScroll))
+  onBeforeUnmount(() => window.removeEventListener("scroll", handleDebouceScroll))
 
-	return { scrollY, centerScrollY }
+  return { scrollY, centerScrollY }
 }
 
 export default useScrollY
