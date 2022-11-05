@@ -1,7 +1,8 @@
 <template>
   <main>
+    <section id="projects">Projects</section>
     <Main />
-    <Main />
+    <!-- <Main /> -->
     <!-- <About /> -->
     <section id="projects">Projects</section>
     <section id="contacts">Contact</section>

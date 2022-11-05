@@ -1,5 +1,10 @@
 <template>
-  <ScrollSection :animation="[{}]">
+  <ScrollSection
+    :animation="[
+      { opacity: 1, translateY: 0 },
+      { opacity: 0, translateY: -100 },
+    ]"
+  >
     <h1 id="headLine">
       안녕하세요,
       <br />

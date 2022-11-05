@@ -1,20 +1,21 @@
 <template>
   <section ref="sectionRef" class="scroll-section">
-    <Animator :sectionRef="sectionRef" :active="active">
+    <Animator :sectionRef="sectionRef" :active="active" :animation="animation">
       <slot></slot>
     </Animator>
   </section>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, PropType, CSSProperties } from "vue"
+import { defineComponent, ref, PropType } from "vue"
 import Animator from "./Animator.vue"
 import useIntersectionObserver from "@/lib/useIntersectionObserver"
+import { AnimationType } from "./Animator.vue"
 
 export default defineComponent({
   components: { Animator },
   props: {
-    animation: { type: Array as PropType<CSSProperties[]>, required: true },
+    animation: { type: Object as PropType<AnimationType[]>, required: true },
   },
   setup() {
     const sectionRef = ref<HTMLElement>()
