@@ -48,9 +48,18 @@ export default defineComponent({
     }
   },
   methods: {
-    getSectionVisibility: function () {
-      const width = this.section_ref?.offsetWidth ?? 0
-      const height = this.section_ref?.offsetHeight ?? 0
+    getScrollPercentage: function (current_scroll: number) {
+      if (!this.section_ref) {
+        return 0
+      }
+      const section_offset_top = this.section_ref.offsetTop
+      const section_offset_height = this.section_ref.offsetHeight
+      // const endY = section_offset_top + section_offset_height
+
+      const section_top_position = current_scroll - section_offset_top ?? 0
+      const scroll_percentage_with_negative = (section_top_position / section_offset_height) * 100
+      const scroll_percentage = Math.round((100 + scroll_percentage_with_negative) / 2)
+      return scroll_percentage
     },
   },
   watch: {
@@ -64,38 +73,35 @@ export default defineComponent({
         const animatorRef = this.animatorRef
 
         if (!this.section_ref || !animatorRef) return
-        const offsetTop = this.section_ref.offsetTop
-        const height = this.section_ref.offsetHeight
-        const endY = offsetTop + height
 
         this.RAF_timeout = requestAnimationFrame(() => {
-          const section_top_position = nv - offsetTop
-          const scroll_percentage = Math.round((100 + (section_top_position / height) * 100) / 2)
+          const scroll_percentage = this.getScrollPercentage(nv)
 
-          console.log(scroll_percentage)
+          const out_of_range = 0 > scroll_percentage || scroll_percentage > 100
+          if (out_of_range) {
+            animatorRef.style.opacity = "0"
+            return
+          }
 
-          // const out_of_section = 0 > scroll_percentage || scroll_percentage > 100
+          /**
+           * 최상단 엘리먼트는 50부터 시작 -> 보정필요 -> 그냥 animation prop으로 처리
+           * 다른 엘리먼트는 0~100 시작
+           * 첫번째 엘리먼트와 두번째 엘리먼트가 동시에 존재하는 상황을 허용할건지 정책 결정
+           */
 
-          // if (out_of_section) {
-          //   animatorRef.style.opacity = "0"
+          // if (nv > endY) {
+          //   console.log("TEST")
+          //   section.style.opacity = "0"
           //   return
           // }
 
-          // // if (nv > endY) {
-          // //   console.log("TEST")
-          // //   section.style.opacity = "0"
-          // //   return
-          // // }
-
-          // if (50 > scroll_percentage) {
-          //   // console.log("BEFORE", 1 - (1 - scroll_percentage / 100))
-          //   animatorRef.style.opacity = (1 - (1 - scroll_percentage / 100)).toString()
-          // } else if (100 > scroll_percentage) {
-          //   // console.log("AFTER", 1 - scroll_percentage / 100)
-          //   animatorRef.style.opacity = (1 - scroll_percentage / 100).toString()
-          // }
-          // // section.style.transform = `translateY(${scroll_percentage * -1}px)`
-          // animatorRef.style.transform = `matrix(1, 0, 0, 1, 0, ${scroll_percentage * -1})`
+          if (50 > scroll_percentage) {
+            animatorRef.style.opacity = ((scroll_percentage / 100) * 2).toString()
+          } else if (100 > scroll_percentage) {
+            animatorRef.style.opacity = (1 - ((scroll_percentage - 50) / 100) * 2).toString()
+          }
+          // section.style.transform = `translateY(${scroll_percentage * -1}px)`
+          animatorRef.style.transform = `matrix(1, 0, 0, 1, 0, ${scroll_percentage * -1})`
         })
       }
     },

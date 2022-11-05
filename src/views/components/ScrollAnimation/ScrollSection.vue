@@ -32,6 +32,8 @@ export default defineComponent({
     },
   },
   mounted() {
+    // const element = [...document.getElementsByClassName("scroll-section")].pop()
+    // console.log(element, element === this.sectionRef)
     useIntersectionObserver(this.sectionRef ?? null, this.handleObserve)
   },
 })
