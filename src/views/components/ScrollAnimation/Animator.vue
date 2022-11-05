@@ -15,6 +15,17 @@ export interface AnimationType extends Omit<CSSProperties, "translate"> {
   translateY?: number
 }
 
+interface ScrollAnimationDataType {
+  percentage: {
+    from: number
+    to: number
+  }
+  animation: {
+    from: AnimationType
+    to: AnimationType
+  }
+}
+
 export default defineComponent({
   props: {
     /**
@@ -40,7 +51,9 @@ export default defineComponent({
      * animatoin_steps.forEach((v) => { ... })
      * 배열로 퍼센트 계산하여 애니메이션 Batch
      */
-    console.log(this.animation)
+    // console.log(this.animation)
+    const animation_data = this.getAnimationTimelineData()
+    console.log(animation_data)
   },
   data() {
     return {
@@ -48,6 +61,23 @@ export default defineComponent({
     }
   },
   methods: {
+    getAnimationTimelineData: function () {
+      return this.animation.reduce<ScrollAnimationDataType[]>((acc, item, index) => {
+        const from = acc.length ? acc[index - 1].percentage.to : 0
+        const to = (100 / (this.animation.length - 1)) * index
+
+        const from_animation = acc.length ? acc[index - 1].animation.from : this.animation[0]
+        const to_animation = item
+
+        return [
+          ...acc,
+          {
+            percentage: { from: from, to: to },
+            animation: { from: from_animation, to: to_animation },
+          },
+        ]
+      }, [])
+    },
     getScrollPercentage: function (current_scroll: number) {
       if (!this.section_ref) {
         return 0
@@ -69,41 +99,40 @@ export default defineComponent({
       if (this.RAF_timeout) {
         cancelAnimationFrame(this.RAF_timeout)
         this.RAF_timeout = undefined
-      } else {
-        const animatorRef = this.animatorRef
-
-        if (!this.section_ref || !animatorRef) return
-
-        this.RAF_timeout = requestAnimationFrame(() => {
-          const scroll_percentage = this.getScrollPercentage(nv)
-
-          const out_of_range = 0 > scroll_percentage || scroll_percentage > 100
-          if (out_of_range) {
-            animatorRef.style.opacity = "0"
-            return
-          }
-
-          /**
-           * 최상단 엘리먼트는 50부터 시작 -> 보정필요 -> 그냥 animation prop으로 처리
-           * 다른 엘리먼트는 0~100 시작
-           * 첫번째 엘리먼트와 두번째 엘리먼트가 동시에 존재하는 상황을 허용할건지 정책 결정
-           */
-
-          // if (nv > endY) {
-          //   console.log("TEST")
-          //   section.style.opacity = "0"
-          //   return
-          // }
-
-          if (50 > scroll_percentage) {
-            animatorRef.style.opacity = ((scroll_percentage / 100) * 2).toString()
-          } else if (100 > scroll_percentage) {
-            animatorRef.style.opacity = (1 - ((scroll_percentage - 50) / 100) * 2).toString()
-          }
-          // section.style.transform = `translateY(${scroll_percentage * -1}px)`
-          animatorRef.style.transform = `matrix(1, 0, 0, 1, 0, ${scroll_percentage * -1})`
-        })
       }
+
+      const animatorRef = this.animatorRef
+      if (!this.section_ref || !animatorRef) return
+
+      this.RAF_timeout = requestAnimationFrame(() => {
+        const scroll_percentage = this.getScrollPercentage(nv)
+
+        const out_of_range = 0 > scroll_percentage || scroll_percentage > 100
+        if (out_of_range) {
+          animatorRef.style.opacity = "0"
+          return
+        }
+
+        /**
+         * 최상단 엘리먼트는 50부터 시작 -> 보정필요 -> 그냥 animation prop으로 처리
+         * 다른 엘리먼트는 0~100 시작
+         * 첫번째 엘리먼트와 두번째 엘리먼트가 동시에 존재하는 상황을 허용할건지 정책 결정
+         */
+
+        // if (nv > endY) {
+        //   console.log("TEST")
+        //   section.style.opacity = "0"
+        //   return
+        // }
+
+        if (50 > scroll_percentage) {
+          animatorRef.style.opacity = ((scroll_percentage / 100) * 2).toString()
+        } else if (100 > scroll_percentage) {
+          animatorRef.style.opacity = (1 - ((scroll_percentage - 50) / 100) * 2).toString()
+        }
+        // section.style.transform = `translateY(${scroll_percentage * -1}px)`
+        animatorRef.style.transform = `matrix(1, 0, 0, 1, 0, ${scroll_percentage * -1})`
+      })
     },
     unmounted: function () {
       this.RAF_timeout = undefined

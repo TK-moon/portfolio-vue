@@ -2,7 +2,7 @@
   <ScrollSection
     :animation="[
       { opacity: 1, translateY: 0 },
-      { opacity: 1, translateY: 0 },
+      { opacity: 1, translateY: 50 },
       { opacity: 0, translateY: -100 },
     ]"
   >
@@ -37,7 +37,8 @@ import ScrollSection from "@/views/components/ScrollAnimation/ScrollSection.vue"
 const getColorThemeHandler = () => {
   const store = useStore()
   const colorTheme = computed(() => store.state.colorThemeModule.colorTheme)
-  const setColorTheme = (payload: { colorTheme: string }) => store.dispatch("colorThemeModule/SET_COLOR_THEME_WITH_LOCALSTORAGE", payload)
+  const setColorTheme = (payload: { colorTheme: string }) =>
+    store.dispatch("colorThemeModule/SET_COLOR_THEME_WITH_LOCALSTORAGE", payload)
   return { colorTheme, setColorTheme }
 }
 

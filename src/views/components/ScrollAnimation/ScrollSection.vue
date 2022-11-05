@@ -31,10 +31,11 @@ export default defineComponent({
       this.active = entries[0].isIntersecting ? true : false
     },
   },
-  mounted() {
-    // const element = [...document.getElementsByClassName("scroll-section")].pop()
-    // console.log(element, element === this.sectionRef)
+  mounted: function () {
     useIntersectionObserver(this.sectionRef ?? null, this.handleObserve)
+  },
+  unmounted: function () {
+    this.active = false
   },
 })
 </script>
