@@ -1,5 +1,9 @@
 <template>
-  <section ref="sectionRef" class="animation-section">
+  <section
+    ref="sectionRef"
+    class="animation-section"
+    :style="{ marginBottom: disable_multiple_animation ? '50%' : '0' }"
+  >
     <Animator :sectionRef="sectionRef" :active="true" :animation="animation">
       <slot></slot>
     </Animator>
@@ -16,6 +20,7 @@ export default defineComponent({
   components: { Animator },
   props: {
     animation: { type: Object as PropType<AnimationType[]>, required: true },
+    disable_multiple_animation: { type: Boolean },
   },
   setup() {
     const sectionRef = ref<HTMLElement>()

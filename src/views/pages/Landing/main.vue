@@ -1,5 +1,6 @@
 <template>
   <AnimationSection
+    disable_multiple_animation
     :animation="[
       { opacity: 1, translate: '0 0' },
       { opacity: 1, translate: '0 0' },
