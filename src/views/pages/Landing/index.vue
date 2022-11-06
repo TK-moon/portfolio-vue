@@ -1,7 +1,7 @@
 <template>
   <main>
-    <Main />
-    <About />
+    <Main id="main" />
+    <About id="about" />
     <section id="projects">Second</section>
     <section id="contacts">Contact</section>
   </main>

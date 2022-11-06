@@ -2,9 +2,9 @@
   <section
     ref="sectionRef"
     class="animation-section"
-    :style="{ marginBottom: disable_multiple_animation ? '50%' : '0' }"
+    :style="{ marginBottom: disable_multiple_animation ? '100vh' : '0' }"
   >
-    <Animator :sectionRef="sectionRef" :active="true" :animation="animation">
+    <Animator :sectionRef="sectionRef" :active="active" :animation="animation">
       <slot></slot>
     </Animator>
   </section>
@@ -13,7 +13,6 @@
 <script lang="ts">
 import { defineComponent, ref, PropType } from "vue"
 import Animator from "./Animator.vue"
-import useIntersectionObserver from "@/lib/useIntersectionObserver"
 import { AnimationType } from "@/utils/animation_utils"
 
 export default defineComponent({
@@ -31,13 +30,8 @@ export default defineComponent({
       active: false,
     }
   },
-  methods: {
-    handleObserve(entries: IntersectionObserverEntry[]) {
-      this.active = entries[0].isIntersecting ? true : false
-    },
-  },
   mounted: function () {
-    useIntersectionObserver(this.sectionRef ?? null, this.handleObserve)
+    this.active = true
   },
   unmounted: function () {
     this.active = false

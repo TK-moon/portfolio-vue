@@ -6,13 +6,32 @@
         <li><router-link :to="{ hash: '#about' }">About</router-link></li>
         <li><router-link :to="{ hash: '#projects' }">Projects</router-link></li>
         <li><router-link :to="{ hash: '#contacts' }">Contacts</router-link></li>
+        <li><font-awesome-icon :icon="['fas', 'cog']" size="lg" @click="modalVisible = true" /></li>
       </ol>
     </nav>
   </header>
+  <Modal v-model="modalVisible">
+    <ThemeModal />
+  </Modal>
 </template>
 
 <script lang="ts">
-export default {}
+import { defineComponent } from "vue"
+
+import Modal from "@/views/components/Modal.vue"
+import ThemeModal from "@/views/components/ThemeModal.vue"
+
+export default defineComponent({
+  components: {
+    Modal,
+    ThemeModal,
+  },
+  data: function () {
+    return {
+      modalVisible: false,
+    }
+  },
+})
 </script>
 
 <style lang="scss" scoped>
@@ -32,6 +51,7 @@ header {
   @include mobile {
     height: 60px;
   }
+  li,
   a {
     text-decoration: none;
     color: var(--color-primary-text);

@@ -14,62 +14,22 @@
     </h1>
     <p id="keyword">Web Developer / Frontend</p>
     <p id="hashtags">#반응형 #포트폴리오</p>
-    <font-awesome-icon :icon="['fas', 'cog']" size="lg" @click="modalVisible = true" />
   </AnimationSection>
-  <Modal v-model="modalVisible">
-    <h1>테마 설정</h1>
-    <br />
-    <div class="modal-grid">
-      <ToggleRadio v-model="colorThemeRadio" value="light-mode" name="color-theme"> 라이트 모드 </ToggleRadio>
-      <ToggleRadio v-model="colorThemeRadio" value="dark-mode" name="color-theme"> 다크 모드 </ToggleRadio>
-      <ToggleRadio v-model="colorThemeRadio" value="os-theme-mode" name="color-theme"> 기기 테마 </ToggleRadio>
-    </div>
-  </Modal>
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, ref } from "vue"
-import { useStore } from "vuex"
+import { defineComponent } from "vue"
 
-import Modal from "@/views/components/Modal.vue"
 import ToggleRadio from "@/views/components/RadioToggle.vue"
 import AnimationSection from "@/views/components/ScrollAnimation/AnimationSection.vue"
 
-const getColorThemeHandler = () => {
-  const store = useStore()
-  const colorTheme = computed(() => store.state.colorThemeModule.colorTheme)
-  const setColorTheme = (payload: { colorTheme: string }) =>
-    store.dispatch("colorThemeModule/SET_COLOR_THEME_WITH_LOCALSTORAGE", payload)
-  return { colorTheme, setColorTheme }
-}
-
 export default defineComponent({
   components: {
-    Modal,
     ToggleRadio,
     AnimationSection,
   },
-  setup() {
-    const { colorTheme, setColorTheme } = getColorThemeHandler()
-    const sectionRef = ref<HTMLElement>()
-
-    return {
-      colorTheme,
-      setColorTheme,
-      scrollY,
-      sectionRef,
-    }
-  },
   data() {
-    return {
-      modalVisible: false,
-      colorThemeRadio: this.colorTheme,
-    }
-  },
-  watch: {
-    colorThemeRadio(nv) {
-      this.setColorTheme({ colorTheme: nv })
-    },
+    return {}
   },
 })
 </script>
@@ -108,10 +68,5 @@ export default defineComponent({
   #name {
     font-size: 13vw;
   }
-}
-.modal-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
 }
 </style>
