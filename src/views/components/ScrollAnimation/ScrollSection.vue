@@ -10,7 +10,7 @@
 import { defineComponent, ref, PropType } from "vue"
 import Animator from "./Animator.vue"
 import useIntersectionObserver from "@/lib/useIntersectionObserver"
-import { AnimationType } from "./Animator.vue"
+import { AnimationType } from "@/utils/animation_utils"
 
 export default defineComponent({
   components: { Animator },

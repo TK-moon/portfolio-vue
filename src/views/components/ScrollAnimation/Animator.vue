@@ -9,22 +9,8 @@
 import { defineComponent, ref, CSSProperties, PropType } from "vue"
 import useScrollY from "@/lib/useScrollY"
 import { computed } from "@vue/reactivity"
-
-export interface AnimationType extends Omit<CSSProperties, "translate"> {
-  translateX?: number
-  translateY?: number
-}
-
-interface ScrollAnimationDataType {
-  percentage: {
-    from: number
-    to: number
-  }
-  animation: {
-    from: AnimationType
-    to: AnimationType
-  }
-}
+import { getAnimationTimelineData } from "@/utils/animation_utils"
+import { AnimationType } from "@/utils/animation_utils"
 
 export default defineComponent({
   props: {
@@ -40,20 +26,12 @@ export default defineComponent({
     const animatorRef = ref<HTMLElement>()
     const { scrollY } = useScrollY(10)
     const section_ref = computed(() => props.sectionRef)
+    const animation_timeline_functions = getAnimationTimelineData(props.animation)
 
-    return { animatorRef, scrollY, section_ref }
+    return { animatorRef, scrollY, section_ref, animation_timeline_functions }
   },
   mounted: function () {
-    /**
-     * @TODO
-     * this.animation: 애니메이션 타임라인
-     * const animation_steps = scroll_percentage / this.animation.length
-     * animatoin_steps.forEach((v) => { ... })
-     * 배열로 퍼센트 계산하여 애니메이션 Batch
-     */
-    // console.log(this.animation)
-    const animation_data = this.getAnimationTimelineData()
-    console.log(animation_data)
+    // console.log(this.animation_timeline_functions)
   },
   data() {
     return {
@@ -61,23 +39,6 @@ export default defineComponent({
     }
   },
   methods: {
-    getAnimationTimelineData: function () {
-      return this.animation.reduce<ScrollAnimationDataType[]>((acc, item, index) => {
-        const from = acc.length ? acc[index - 1].percentage.to : 0
-        const to = (100 / (this.animation.length - 1)) * index
-
-        const from_animation = acc.length ? acc[index - 1].animation.from : this.animation[0]
-        const to_animation = item
-
-        return [
-          ...acc,
-          {
-            percentage: { from: from, to: to },
-            animation: { from: from_animation, to: to_animation },
-          },
-        ]
-      }, [])
-    },
     getScrollPercentage: function (current_scroll: number) {
       if (!this.section_ref) {
         return 0
@@ -119,19 +80,25 @@ export default defineComponent({
          * 첫번째 엘리먼트와 두번째 엘리먼트가 동시에 존재하는 상황을 허용할건지 정책 결정
          */
 
+        // console.log(scroll_percentage)
+
+        this.animation_timeline_functions.map((v) => {
+          v(scroll_percentage, animatorRef)
+        })
+
         // if (nv > endY) {
         //   console.log("TEST")
         //   section.style.opacity = "0"
         //   return
         // }
 
-        if (50 > scroll_percentage) {
-          animatorRef.style.opacity = ((scroll_percentage / 100) * 2).toString()
-        } else if (100 > scroll_percentage) {
-          animatorRef.style.opacity = (1 - ((scroll_percentage - 50) / 100) * 2).toString()
-        }
-        // section.style.transform = `translateY(${scroll_percentage * -1}px)`
-        animatorRef.style.transform = `matrix(1, 0, 0, 1, 0, ${scroll_percentage * -1})`
+        // if (50 > scroll_percentage) {
+        //   animatorRef.style.opacity = ((scroll_percentage / 100) * 2).toString()
+        // } else if (100 > scroll_percentage) {
+        //   animatorRef.style.opacity = (1 - ((scroll_percentage - 50) / 100) * 2).toString()
+        // }
+        // // section.style.transform = `translateY(${scroll_percentage * -1}px)`
+        // animatorRef.style.transform = `matrix(1, 0, 0, 1, 0, ${scroll_percentage * -1})`
       })
     },
     unmounted: function () {
