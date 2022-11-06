@@ -6,19 +6,20 @@
   </label>
 </template>
 
-<script>
-import { defineComponent } from "vue"
+<script lang="ts">
+import { defineComponent, PropType } from "vue"
 export default defineComponent({
   props: {
-    modelValue: String,
+    modelValue: {
+      type: String as PropType<unknown>,
+      required: true,
+    },
     value: String,
     name: String,
   },
   methods: {
-    onCheckboxChange(event) {
-      console.dir(event.target)
-      console.log(event.target.value)
-      this.$emit("update:modelValue", event.target.value)
+    onCheckboxChange(event: Event) {
+      this.$emit("update:modelValue", (event.target as HTMLInputElement).value)
     },
   },
   computed: {

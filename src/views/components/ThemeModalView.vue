@@ -12,11 +12,12 @@
 import { defineComponent, computed } from "vue"
 import { useStore } from "vuex"
 
+import { ColorThemeTypes } from "@/store/modules/colorTheme"
 import ToggleRadio from "@/views/components/RadioToggle.vue"
 
 const getColorThemeHandler = () => {
   const store = useStore()
-  const colorTheme = computed(() => store.state.colorThemeModule.colorTheme)
+  const colorTheme = computed<ColorThemeTypes>(() => store.state.colorThemeModule.colorTheme)
   const setColorTheme = (payload: { colorTheme: string }) =>
     store.dispatch("colorThemeModule/SET_COLOR_THEME_WITH_LOCALSTORAGE", payload)
   return { colorTheme, setColorTheme }

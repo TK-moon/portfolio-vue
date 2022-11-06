@@ -13,8 +13,8 @@ export default defineComponent({
     modelValue: Boolean,
   },
   methods: {
-    onCheckboxChange(event) {
-      this.$emit("update:modelValue", event.target.checked)
+    onCheckboxChange(event: Event) {
+      this.$emit("update:modelValue", (event.target as HTMLInputElement).checked)
     },
   },
 })

@@ -7,7 +7,7 @@
         <li><router-link :to="{ hash: '#projects' }">Projects</router-link></li>
         <li><router-link :to="{ hash: '#contacts' }">Contacts</router-link></li>
         <li>
-          <button @click="modalVisible = true" label="theme-modal-button">
+          <button @click="modalVisible = true" aria-label="Theme modal button">
             <font-awesome-icon :icon="['fas', 'cog']" size="lg" />
           </button>
         </li>
