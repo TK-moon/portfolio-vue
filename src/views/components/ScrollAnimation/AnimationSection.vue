@@ -45,7 +45,6 @@ export default defineComponent({
   position: relative;
   height: $contents-height;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  place-items: center;
 }
 </style>

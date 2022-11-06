@@ -65,22 +65,6 @@ export default defineComponent({
       colorThemeRadio: this.colorTheme,
     }
   },
-  methods: {
-    fadeOut: function () {
-      return [
-        { opacity: 1, translateY: 0 },
-        { opacity: 0, translateY: -100 },
-      ]
-    },
-    fadeInOut: function () {
-      return [
-        { opacity: 0, translateY: 0 },
-        { opacity: 1, translateY: -50 },
-        { opacity: 0, translateY: -100 },
-      ]
-    },
-  },
-  computed: {},
   watch: {
     colorThemeRadio(nv) {
       this.setColorTheme({ colorTheme: nv })
