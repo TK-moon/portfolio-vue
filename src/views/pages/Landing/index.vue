@@ -9,7 +9,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue"
-import Main from "./main.vue"
+import Main from "./Main.vue"
 import About from "./About.vue"
 
 export default defineComponent({

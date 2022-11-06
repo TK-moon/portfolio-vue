@@ -40,8 +40,8 @@ export default defineComponent({
   letter-spacing: 2px;
   transition: opacity 100ms linear;
   transition: opacity 100ms linear, transform 100ms linear;
-  will-change: opacity, transform;
   color: var(--color-primary-text);
+  margin-bottom: 20px;
 }
 #name {
   font-size: 5vw;
@@ -49,6 +49,7 @@ export default defineComponent({
 }
 #keyword {
   color: var(--color-primary-text);
+  margin-bottom: 10px;
 }
 #hashtags {
   color: var(--color-primary-text);
