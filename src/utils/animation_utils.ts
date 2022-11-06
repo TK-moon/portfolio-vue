@@ -1,8 +1,7 @@
 import { CSSProperties } from "vue"
 
-export interface AnimationType extends Omit<CSSProperties, "translate"> {
-  translateX?: number
-  translateY?: number
+export interface AnimationType extends CSSProperties {
+  test?: boolean
 }
 
 interface ScrollAnimationDataType {
@@ -54,7 +53,7 @@ const generateScrollAnimationFunctionsByScrollTimeline = (
 
       if (style_keys.includes("opacity")) {
         if (v.animation.from.opacity === undefined || v.animation.to.opacity === undefined) {
-          throw new Error("test")
+          throw new Error("opacity property not available")
         }
 
         if (v.animation.from.opacity > v.animation.to.opacity) {
@@ -66,25 +65,34 @@ const generateScrollAnimationFunctionsByScrollTimeline = (
         }
       }
 
-      if (style_keys.includes("translateX") || style_keys.includes("translateY")) {
-        if (v.animation.from.translateY === undefined || v.animation.to.translateY === undefined) {
-          throw new Error("test")
+      if (style_keys.includes("translate")) {
+        if (v.animation.from.translate === undefined || v.animation.to.translate === undefined) {
+          throw new Error("translate property not available")
         }
 
-        const before_y = v.animation.from.translateY
-        const translate_y = v.animation.to.translateY * (section_scroll_percentage / 100) + before_y
+        const [before_x = 0, before_y = 0] = v.animation.from.translate.toString().split(" ").map(Number)
+        const [current_x = 0, current_y = 0] = v.animation.to.translate.toString().split(" ").map(Number)
 
-        element.style.translate = `${0} ${translate_y}px`
+        const translate_y = current_y * (section_scroll_percentage / 100) + before_y
+        const translate_x = current_x * (section_scroll_percentage / 100) + before_x
+        element.style.translate = `${translate_x}px ${translate_y}px`
       }
     }
   })
 }
 
 type AnimationFunctionType = (scroll_percentage: number, element: HTMLElement) => void
-
-export const getAnimationTimelineData = (animation: AnimationType[]): AnimationFunctionType[] => {
+type getAnimationTimelineDataReturnType = {
+  start_style: AnimationType
+  end_style: AnimationType
+  animation_functions: AnimationFunctionType[]
+}
+export const getAnimationTimelineData = (animation: AnimationType[]): getAnimationTimelineDataReturnType => {
   const scroll_timeline_data = generateScrollTimeline(animation)
-  console.log(scroll_timeline_data)
   const animation_functions = generateScrollAnimationFunctionsByScrollTimeline(scroll_timeline_data)
-  return animation_functions
+  return {
+    start_style: scroll_timeline_data[0].animation.from,
+    end_style: scroll_timeline_data[scroll_timeline_data.length - 1].animation.to,
+    animation_functions,
+  }
 }

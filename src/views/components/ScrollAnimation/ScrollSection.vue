@@ -1,6 +1,6 @@
 <template>
   <section ref="sectionRef" class="scroll-section">
-    <Animator :sectionRef="sectionRef" :active="active" :animation="animation">
+    <Animator :sectionRef="sectionRef" :active="true" :animation="animation">
       <slot></slot>
     </Animator>
   </section>

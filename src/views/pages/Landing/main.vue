@@ -1,9 +1,9 @@
 <template>
   <ScrollSection
     :animation="[
-      { opacity: 0, translateY: 0 },
-      { opacity: 1, translateY: -25 },
-      { opacity: 0, translateY: -100 },
+      { opacity: 1, translate: '0 0' },
+      { opacity: 1, translate: '0 0' },
+      { opacity: 0, translate: '0 -100' },
     ]"
   >
     <h1 id="headLine">

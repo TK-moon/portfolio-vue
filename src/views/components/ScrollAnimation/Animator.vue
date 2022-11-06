@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, CSSProperties, PropType } from "vue"
+import { defineComponent, ref, PropType } from "vue"
 import useScrollY from "@/lib/useScrollY"
 import { computed } from "@vue/reactivity"
 import { getAnimationTimelineData } from "@/utils/animation_utils"
@@ -26,12 +26,12 @@ export default defineComponent({
     const animatorRef = ref<HTMLElement>()
     const { scrollY } = useScrollY(10)
     const section_ref = computed(() => props.sectionRef)
-    const animation_timeline_functions = getAnimationTimelineData(props.animation)
+    const animation_timeline_data = getAnimationTimelineData(props.animation)
 
-    return { animatorRef, scrollY, section_ref, animation_timeline_functions }
+    return { animatorRef, scrollY, section_ref, animation_timeline_data }
   },
   mounted: function () {
-    // console.log(this.animation_timeline_functions)
+    this.initializeStartAnimation()
   },
   data() {
     return {
@@ -52,6 +52,14 @@ export default defineComponent({
       const scroll_percentage = Math.round((100 + scroll_percentage_with_negative) / 2)
       return scroll_percentage
     },
+    initializeStartAnimation: function () {
+      const animation_init_data = this.animation_timeline_data.start_style
+      if (this.animatorRef) Object.assign(this.animatorRef.style, animation_init_data)
+    },
+    initializeEndAnimation: function () {
+      const animation_init_data = this.animation_timeline_data.end_style
+      if (this.animatorRef) Object.assign(this.animatorRef.style, animation_init_data)
+    },
   },
   watch: {
     scrollY(nv) {
@@ -68,37 +76,15 @@ export default defineComponent({
       this.RAF_timeout = requestAnimationFrame(() => {
         const scroll_percentage = this.getScrollPercentage(nv)
 
-        const out_of_range = 0 > scroll_percentage || scroll_percentage > 100
-        if (out_of_range) {
-          animatorRef.style.opacity = "0"
-          return
+        if (scroll_percentage <= 0) {
+          return this.initializeStartAnimation()
+        } else if (scroll_percentage >= 100) {
+          return this.initializeEndAnimation()
         }
 
-        /**
-         * 최상단 엘리먼트는 50부터 시작 -> 보정필요 -> 그냥 animation prop으로 처리
-         * 다른 엘리먼트는 0~100 시작
-         * 첫번째 엘리먼트와 두번째 엘리먼트가 동시에 존재하는 상황을 허용할건지 정책 결정
-         */
-
-        // console.log(scroll_percentage)
-
-        this.animation_timeline_functions.map((v) => {
+        this.animation_timeline_data.animation_functions.map((v) => {
           v(scroll_percentage, animatorRef)
         })
-
-        // if (nv > endY) {
-        //   console.log("TEST")
-        //   section.style.opacity = "0"
-        //   return
-        // }
-
-        // if (50 > scroll_percentage) {
-        //   animatorRef.style.opacity = ((scroll_percentage / 100) * 2).toString()
-        // } else if (100 > scroll_percentage) {
-        //   animatorRef.style.opacity = (1 - ((scroll_percentage - 50) / 100) * 2).toString()
-        // }
-        // // section.style.transform = `translateY(${scroll_percentage * -1}px)`
-        // animatorRef.style.transform = `matrix(1, 0, 0, 1, 0, ${scroll_percentage * -1})`
       })
     },
     unmounted: function () {
