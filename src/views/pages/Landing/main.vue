@@ -1,5 +1,5 @@
 <template>
-  <ScrollSection
+  <AnimationSection
     :animation="[
       { opacity: 1, translate: '0 0' },
       { opacity: 1, translate: '0 0' },
@@ -14,7 +14,7 @@
     <p id="keyword">Web Developer / Frontend</p>
     <p id="hashtags">#반응형 #포트폴리오</p>
     <font-awesome-icon :icon="['fas', 'cog']" size="lg" @click="modalVisible = true" />
-  </ScrollSection>
+  </AnimationSection>
   <Modal v-model="modalVisible">
     <h1>테마 설정</h1>
     <br />
@@ -32,7 +32,7 @@ import { useStore } from "vuex"
 
 import Modal from "@/views/components/Modal.vue"
 import ToggleRadio from "@/views/components/RadioToggle.vue"
-import ScrollSection from "@/views/components/ScrollAnimation/ScrollSection.vue"
+import AnimationSection from "@/views/components/ScrollAnimation/AnimationSection.vue"
 
 const getColorThemeHandler = () => {
   const store = useStore()
@@ -46,7 +46,7 @@ export default defineComponent({
   components: {
     Modal,
     ToggleRadio,
-    ScrollSection,
+    AnimationSection,
   },
   setup() {
     const { colorTheme, setColorTheme } = getColorThemeHandler()

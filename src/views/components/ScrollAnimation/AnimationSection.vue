@@ -1,5 +1,5 @@
 <template>
-  <section ref="sectionRef" class="scroll-section">
+  <section ref="sectionRef" class="animation-section">
     <Animator :sectionRef="sectionRef" :active="true" :animation="animation">
       <slot></slot>
     </Animator>
@@ -41,7 +41,7 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.scroll-section {
+.animation-section {
   position: relative;
   height: $contents-height;
   display: flex;
