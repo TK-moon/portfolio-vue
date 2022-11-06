@@ -1,5 +1,5 @@
 <template>
-  <teleport to="#teleportRoot">
+  <teleport to="#teleportRoot" v-if="is_mounted">
     <transition name="modal">
       <div class="modal-backdrop" @click.self="close" v-if="modelValue">
         <div class="modal-contents">
@@ -18,7 +18,20 @@ export default defineComponent({
     modelValue: {
       type: Boolean,
       default: false,
+      required: true,
     },
+  },
+  data: function () {
+    return {
+      is_mounted: false,
+    }
+  },
+  mounted: function () {
+    /**
+     * Vue3 teleport가 내부적으로 to (target) 엘리먼트가 렌더링 되었는지 확인하지 않음.
+     * 엘리먼트가 mounted 되었는지 수동으로 확인하여 teleport.
+     */
+    this.is_mounted = true
   },
   watch: {
     modelValue(nv: boolean) {

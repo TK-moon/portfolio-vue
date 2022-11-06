@@ -1,7 +1,6 @@
 <template>
   <div class="animator" ref="animatorRef">
     <slot></slot>
-    {{ active }}
   </div>
 </template>
 

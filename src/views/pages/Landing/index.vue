@@ -1,7 +1,7 @@
 <template>
   <main>
-    <Main />
-    <About />
+    <Main id="main" />
+    <About id="about" />
     <section id="projects">Second</section>
     <section id="contacts">Contact</section>
   </main>
@@ -9,7 +9,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue"
-import Main from "./main.vue"
+import Main from "./Main.vue"
 import About from "./About.vue"
 
 export default defineComponent({
