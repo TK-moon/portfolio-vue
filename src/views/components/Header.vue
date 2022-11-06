@@ -6,12 +6,16 @@
         <li><router-link :to="{ hash: '#about' }">About</router-link></li>
         <li><router-link :to="{ hash: '#projects' }">Projects</router-link></li>
         <li><router-link :to="{ hash: '#contacts' }">Contacts</router-link></li>
-        <li><font-awesome-icon :icon="['fas', 'cog']" size="lg" @click="modalVisible = true" /></li>
+        <li>
+          <button @click="modalVisible = true" label="theme-modal-button">
+            <font-awesome-icon :icon="['fas', 'cog']" size="lg" />
+          </button>
+        </li>
       </ol>
     </nav>
   </header>
   <Modal v-model="modalVisible">
-    <ThemeModal />
+    <ThemeModalView />
   </Modal>
 </template>
 
@@ -19,12 +23,12 @@
 import { defineComponent } from "vue"
 
 import Modal from "@/views/components/Modal.vue"
-import ThemeModal from "@/views/components/ThemeModal.vue"
+import ThemeModalView from "@/views/components/ThemeModalView.vue"
 
 export default defineComponent({
   components: {
     Modal,
-    ThemeModal,
+    ThemeModalView,
   },
   data: function () {
     return {
@@ -35,14 +39,20 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+a,
+button {
+  appearance: none;
+  text-decoration: none;
+  color: var(--color-primary-text);
+}
+
 header {
   position: sticky;
   top: 0;
   width: 100%;
   height: $header-height;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  place-items: center;
   flex-direction: column;
   padding: 0 20px;
   backdrop-filter: blur(15px);
@@ -51,16 +61,13 @@ header {
   @include mobile {
     height: 60px;
   }
-  li,
-  a {
-    text-decoration: none;
-    color: var(--color-primary-text);
-  }
 }
+
 #logo {
   font-size: 32px;
   font-weight: 900;
 }
+
 nav {
   width: 100%;
   max-width: 1200px;
@@ -69,18 +76,30 @@ nav {
   justify-content: space-between;
   align-items: center;
   ol {
+    height: 100%;
     display: grid;
-    margin: 0;
-    padding: 0;
     grid-auto-flow: column;
     list-style: none;
     gap: 25px;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    @include mobile {
+      font-size: 14px;
+      gap: 15px;
+    }
     li {
       position: relative;
+      color: var(--color-primary-text);
+      :is(a, button) {
+        display: flex;
+        place-items: center;
+        height: 100%;
+      }
       &:before {
         content: "";
         position: absolute;
-        bottom: -10px;
+        bottom: 10px;
         left: 0;
         right: 0;
         width: 100%;
