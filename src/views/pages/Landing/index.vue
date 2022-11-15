@@ -2,7 +2,8 @@
   <main>
     <Main id="main" />
     <About id="about" />
-    <section id="projects">Second</section>
+    <Career id="career" />
+    <section id="projects">Projects</section>
     <section id="contacts">Contact</section>
   </main>
 </template>
@@ -11,11 +12,13 @@
 import { defineComponent } from "vue"
 import Main from "./Main.vue"
 import About from "./About.vue"
+import Career from "./Career.vue"
 
 export default defineComponent({
   components: {
     Main,
     About,
+    Career,
   },
 })
 </script>
@@ -24,7 +27,7 @@ export default defineComponent({
 main {
   section {
     /** Section Debug Code */
-    height: 100vh;
+    /* min-height: 100vh; */
     border-bottom: 1px solid #000;
   }
 }
