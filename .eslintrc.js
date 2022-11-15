@@ -14,4 +14,12 @@ module.exports = {
   rules: {
     "prettier/prettier": ["error", { endOfLine: "auto" }],
   },
+  overrides: [
+    {
+      files: ["vue.config.js"],
+      rules: {
+        "@typescript-eslint/no-var-requires": "off",
+      },
+    },
+  ],
 }
