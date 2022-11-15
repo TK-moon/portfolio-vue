@@ -27,7 +27,7 @@ export default defineComponent({
 main {
   section {
     /** Section Debug Code */
-    /* min-height: 100vh; */
+    min-height: 100vh;
     border-bottom: 1px solid #000;
   }
 }

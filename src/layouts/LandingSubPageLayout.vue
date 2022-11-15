@@ -32,5 +32,11 @@ export default defineComponent({})
   font-weight: bold;
   position: sticky;
   top: 80px;
+  @include tablet {
+    top: 80px;
+  }
+  @include mobile {
+    top: 60px;
+  }
 }
 </style>

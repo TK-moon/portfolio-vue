@@ -1,22 +1,29 @@
 <template>
-  <section>
-    <div class="career-section-container">
-      <div id="line"></div>
-      <ul id="timeline-wrapper">
-        <li v-for="i in timeline_data">
-          <p>{{ i.datetime }}</p>
-          <p>{{ i.title }}</p>
-          <p>{{ i.contents }}</p>
-        </li>
-      </ul>
-    </div>
-  </section>
+  <LandingSubPageLayout>
+    <template #title>Career Timeline</template>
+    <template #contents>
+      <div class="career-section-container">
+        <div id="line"></div>
+        <ul id="timeline-wrapper">
+          <li v-for="i in timeline_data">
+            <p>{{ i.datetime }}</p>
+            <p>{{ i.title }}</p>
+            <p>{{ i.contents }}</p>
+          </li>
+        </ul>
+      </div>
+    </template>
+  </LandingSubPageLayout>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue"
+import LandingSubPageLayout from "@/layouts/LandingSubPageLayout.vue"
 
 export default defineComponent({
+  components: {
+    LandingSubPageLayout,
+  },
   data: function () {
     return {
       timeline_data: [
