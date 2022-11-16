@@ -4,4 +4,6 @@ $breakpoint-desktop: 1024px;
 
 $header-height: 80px;
 $full-height: calc(var(--vh, 1vh) * 100);
-$contents-height: calc($full-height - $header-height)
+$contents-height: calc($full-height - $header-height);
+
+$max-width: 1200px;
