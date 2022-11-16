@@ -73,8 +73,9 @@ const generateScrollAnimationFunctionsByScrollTimeline = (
         const [before_x = 0, before_y = 0] = v.animation.from.translate.toString().split(" ").map(Number)
         const [current_x = 0, current_y = 0] = v.animation.to.translate.toString().split(" ").map(Number)
 
-        const translate_y = current_y * (section_scroll_percentage / 100) + before_y
-        const translate_x = current_x * (section_scroll_percentage / 100) + before_x
+        const translate_y = (current_y - before_y) * (section_scroll_percentage / 100) + before_y
+        const translate_x = (current_x - before_x) * (section_scroll_percentage / 100) + before_x
+
         element.style.translate = `${translate_x}px ${translate_y}px`
       }
     }
@@ -89,6 +90,7 @@ type getAnimationTimelineDataReturnType = {
 }
 export const getAnimationTimelineData = (animation: AnimationType[]): getAnimationTimelineDataReturnType => {
   const scroll_timeline_data = generateScrollTimeline(animation)
+  console.log(scroll_timeline_data)
   const animation_functions = generateScrollAnimationFunctionsByScrollTimeline(scroll_timeline_data)
   return {
     start_style: scroll_timeline_data[0].animation.from,
