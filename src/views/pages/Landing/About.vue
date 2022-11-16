@@ -2,9 +2,9 @@
   <AnimationSection
     disable_multiple_animation
     :animation="[
-      { opacity: 0, translate: '0 0' },
-      { opacity: 1, translate: '0 -50' },
-      { opacity: 0, translate: '0 -100' },
+      { opacity: 0, translate: '0 50' },
+      { opacity: 1, translate: '0 0' },
+      { opacity: 0, translate: '0 -50' },
     ]"
     id="about"
   >
