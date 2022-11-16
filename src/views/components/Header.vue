@@ -4,10 +4,11 @@
       <router-link id="logo" :to="{ hash: '#main' }">TK</router-link>
       <ol>
         <li><router-link :to="{ hash: '#about' }">About</router-link></li>
+        <li><router-link :to="{ hash: '#career' }">Career</router-link></li>
         <li><router-link :to="{ hash: '#projects' }">Projects</router-link></li>
         <li><router-link :to="{ hash: '#contacts' }">Contacts</router-link></li>
         <li>
-          <button @click="modalVisible = true" aria-label="Theme modal button">
+          <button @click="modalVisible = true" aria-label="Theme modal button" class="modal-button">
             <font-awesome-icon :icon="['fas', 'cog']" size="lg" />
           </button>
         </li>
@@ -86,7 +87,7 @@ nav {
     font-size: 16px;
     @include mobile {
       font-size: 14px;
-      gap: 15px;
+      gap: 10px;
     }
     li {
       position: relative;
@@ -113,5 +114,9 @@ nav {
       }
     }
   }
+}
+
+.modal-button {
+  padding: 0;
 }
 </style>
