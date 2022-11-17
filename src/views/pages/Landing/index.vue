@@ -3,6 +3,7 @@
     <Main id="main" />
     <About id="about" />
     <Career id="career" />
+    <Projects id="projects" />
     <section id="projects">Projects</section>
     <section id="contacts">Contact</section>
   </main>
@@ -13,12 +14,14 @@ import { defineComponent } from "vue"
 import Main from "./Main.vue"
 import About from "./About.vue"
 import Career from "./Career.vue"
+import Projects from "./Projects.vue"
 
 export default defineComponent({
   components: {
     Main,
     About,
     Career,
+    Projects,
   },
 })
 </script>
