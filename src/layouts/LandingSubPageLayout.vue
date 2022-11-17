@@ -30,8 +30,8 @@ export default defineComponent({})
   color: var(--color-primary-text);
   font-size: 1.17rem;
   font-weight: bold;
-  position: sticky;
-  top: 80px;
+  /* position: sticky;
+  top: 80px; */
   @include tablet {
     top: 80px;
   }
