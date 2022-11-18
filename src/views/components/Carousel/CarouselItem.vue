@@ -7,6 +7,7 @@
 <script lang="ts">
 /**
  * @deprecated
+ * 사용 금지
  * swiper 8.x 에서 커스텀 컴포넌트에 slot 사용시 위치가 swiper-wrapper 하위가 아닌 같은 depth로 렌더링되는 버그
  */
 import { defineComponent } from "vue"
@@ -25,9 +26,4 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss" scoped>
-.swiper {
-  width: 100%;
-  height: 100%;
-}
-</style>
+<style lang="scss" scoped></style>
