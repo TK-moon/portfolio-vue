@@ -43,13 +43,12 @@ import { defineComponent } from "vue"
 import LandingSubPageLayout from "@/layouts/LandingSubPageLayout.vue"
 import CarouselContainer from "@/views/components/Carousel/CarouselContainer.vue"
 
-import { Swiper, SwiperSlide } from "swiper/vue/swiper-vue"
+import { SwiperSlide } from "swiper/vue/swiper-vue"
 
 export default defineComponent({
   components: {
     LandingSubPageLayout,
     CarouselContainer,
-    Swiper,
     SwiperSlide,
   },
   setup() {
