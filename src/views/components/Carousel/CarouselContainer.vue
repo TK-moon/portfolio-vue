@@ -2,9 +2,10 @@
   <Swiper
     :navigation="{ prevEl: '.swiper-custom-button-prev', nextEl: '.swiper-custom-button-prev' }"
     :pagination="{ clickable: true }"
-    :space-between="50"
+    :space-between="20"
     :modules="swiper_modules"
     @_swiper="setControlledSwiper"
+    loop
   >
     <slot></slot>
     <button class="swiper-custom-button-prev" @click="controlledSwiper?.slidePrev()">prev</button>
@@ -41,6 +42,8 @@ export default defineComponent({
   width: 100%;
   height: 100%;
   .swiper-wrapper .swiper-slide {
+    display: flex;
+    height: 100%;
     & > :is(img, div) {
       width: inherit !important;
       height: inherit !important;
@@ -48,19 +51,28 @@ export default defineComponent({
   }
 }
 
-.swiper-custom-button-prev {
+.swiper-custom-button-prev,
+.swiper-custom-button-next {
   position: absolute;
-  z-index: 10;
   top: 50%;
+  z-index: 10;
+  opacity: 1;
   translate: 0 -50%;
+  transition: opacity 200ms ease-in-out;
+}
+
+.swiper-custom-button-prev {
   left: 0;
 }
 
 .swiper-custom-button-next {
-  position: absolute;
-  z-index: 10;
-  top: 50%;
-  translate: 0 -50%;
   right: 0;
+}
+
+.swiper:not(:hover) {
+  .swiper-custom-button-prev,
+  .swiper-custom-button-next {
+    opacity: 0;
+  }
 }
 </style>

@@ -74,6 +74,12 @@ export default defineComponent({
 
   .project-carousel {
     width: 40%;
+    border-radius: 10px;
+    img {
+      aspect-ratio: 5 / 4;
+      object-position: center;
+      object-fit: cover;
+    }
   }
 }
 </style>
