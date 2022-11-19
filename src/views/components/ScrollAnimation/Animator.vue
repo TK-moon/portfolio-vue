@@ -1,5 +1,5 @@
 <template>
-  <div class="animator" ref="animatorRef">
+  <div ref="animatorRef" class="animator" :class="active ? 'animator-active' : 'animator-deactive'">
     <slot></slot>
   </div>
 </template>
@@ -23,7 +23,7 @@ export default defineComponent({
   },
   setup(props) {
     const animatorRef = ref<HTMLElement>()
-    const { scrollY } = useScrollY(10)
+    const { scrollY } = useScrollY(0)
     const section_ref = computed(() => props.sectionRef)
     const animation_timeline_data = getAnimationTimelineData(props.animation)
 
@@ -104,5 +104,11 @@ export default defineComponent({
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  &.animator-active {
+    will-change: auto;
+  }
+  &.animator-deactive {
+    will-change: unset;
+  }
 }
 </style>

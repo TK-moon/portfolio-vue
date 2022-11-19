@@ -1,10 +1,11 @@
 import { watchEffect } from "vue"
 
 const useIntersectionObserver = (
-  ref: HTMLElement | null,
+  ref: HTMLElement | undefined,
+  options: IntersectionObserverInit,
   callback: (entries: IntersectionObserverEntry[]) => void
 ): void => {
-  const observer = new IntersectionObserver(callback, {})
+  const observer = new IntersectionObserver(callback, options)
 
   watchEffect((onStop) => {
     if (!ref) return

@@ -14,6 +14,7 @@
 import { defineComponent, ref, PropType } from "vue"
 import Animator from "./Animator.vue"
 import { AnimationType } from "@/utils/animation_utils"
+import useIntersectionObserver from "@/lib/useIntersectionObserver"
 
 export default defineComponent({
   components: { Animator },
@@ -31,7 +32,9 @@ export default defineComponent({
     }
   },
   mounted: function () {
-    this.active = true
+    useIntersectionObserver(this.sectionRef, { rootMargin: "100px" }, () => {
+      this.active = true
+    })
   },
   unmounted: function () {
     this.active = false
