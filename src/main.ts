@@ -7,20 +7,12 @@ import store from "./store"
 import "@/styles/index.scss"
 
 import { library } from "@fortawesome/fontawesome-svg-core"
-import {
-  faCog,
-  faChevronLeft,
-  faChevronRight,
-  faChevronCircleLeft,
-  faChevronCircleRight,
-} from "@fortawesome/free-solid-svg-icons"
+import { faCog, faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome"
 
 library.add(faCog)
 library.add(faChevronLeft)
 library.add(faChevronRight)
-library.add(faChevronCircleLeft)
-library.add(faChevronCircleRight)
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app"

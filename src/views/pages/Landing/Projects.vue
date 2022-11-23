@@ -16,11 +16,8 @@
         <div class="project-wrapper">
           <div class="project-contents">asdf</div>
           <CarouselContainer class="project-carousel">
-            <SwiperSlide><img src="@/assets/images/portfolio5-1.png" /></SwiperSlide>
-            <SwiperSlide><img src="@/assets/images/portfolio5-2.png" /></SwiperSlide>
-            <SwiperSlide><img src="@/assets/images/portfolio5-3.png" /></SwiperSlide>
-            <SwiperSlide><img src="@/assets/images/portfolio5-4.png" /></SwiperSlide>
-            <SwiperSlide><img src="@/assets/images/portfolio5-5.png" /></SwiperSlide>
+            <SwiperSlide><img src="@/assets/images/portfolio2-1.png" /></SwiperSlide>
+            <SwiperSlide><img src="@/assets/images/portfolio2-2.png" /></SwiperSlide>
           </CarouselContainer>
         </div>
         <div class="project-wrapper">

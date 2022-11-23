@@ -45,6 +45,8 @@ export default defineComponent({
 .swiper {
   width: 100%;
   height: 100%;
+  box-shadow: 0 5px 10px var(--color-shadow);
+  border: 1px solid var(--color-shadow);
   .swiper-wrapper .swiper-slide {
     display: flex;
     height: 100%;
@@ -53,45 +55,51 @@ export default defineComponent({
       height: inherit !important;
     }
   }
-}
 
-.swiper-custom-button-prev,
-.swiper-custom-button-next {
-  position: absolute;
-  top: 50%;
-  z-index: 10;
-  opacity: 1;
-  translate: 0 -50%;
-  transition: opacity 200ms ease-in-out;
-  @include mobile {
-    display: none;
+  .swiper-custom-button-prev {
+    left: 10px;
   }
-}
 
-.swiper-custom-button-prev {
-  left: 10px;
-  padding: 10px;
-  scale: 1.3;
-}
+  .swiper-custom-button-next {
+    right: 10px;
+  }
 
-.swiper-custom-button-next {
-  right: 10px;
-  padding: 10px;
-  scale: 1.3;
-}
+  .swiper-pagination {
+    .swiper-pagination-bullet {
+      background-color: var(--color-grey);
+      transition: background-color 200ms ease-in-out;
+      &.swiper-pagination-bullet-active {
+        background-color: var(--color-black);
+      }
+    }
+  }
 
-.swiper:not(:hover) {
   .swiper-custom-button-prev,
   .swiper-custom-button-next {
-    opacity: 0;
-  }
-}
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    opacity: 1;
+    translate: 0 -50%;
+    transition: opacity 200ms ease-in-out, background-color 100ms ease-in-out;
+    color: var(--color-grey);
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    &:active {
+      background-color: rgba($color: #000000, $alpha: 0.2);
+    }
 
-.swiper-pagination-bullet {
-  background-color: var(--color-grey);
-  transition: background-color 200ms ease-in-out;
-}
-.swiper-pagination-bullet-active {
-  background-color: var(--color-black);
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &:not(:hover) {
+    .swiper-custom-button-prev,
+    .swiper-custom-button-next {
+      opacity: 0;
+    }
+  }
 }
 </style>
