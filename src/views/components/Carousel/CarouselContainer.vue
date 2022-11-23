@@ -8,8 +8,12 @@
     loop
   >
     <slot></slot>
-    <button class="swiper-custom-button-prev" @click="controlledSwiper?.slidePrev()">prev</button>
-    <button class="swiper-custom-button-next" @click="controlledSwiper?.slideNext()">next</button>
+    <button class="swiper-custom-button-prev" @click="controlledSwiper?.slidePrev()">
+      <font-awesome-icon :icon="['fas', 'chevron-left']" size="lg" />
+    </button>
+    <button class="swiper-custom-button-next" @click="controlledSwiper?.slideNext()">
+      <font-awesome-icon :icon="['fas', 'chevron-right']" size="lg" />
+    </button>
   </Swiper>
 </template>
 
@@ -59,14 +63,21 @@ export default defineComponent({
   opacity: 1;
   translate: 0 -50%;
   transition: opacity 200ms ease-in-out;
+  @include mobile {
+    display: none;
+  }
 }
 
 .swiper-custom-button-prev {
-  left: 0;
+  left: 10px;
+  padding: 10px;
+  scale: 1.3;
 }
 
 .swiper-custom-button-next {
-  right: 0;
+  right: 10px;
+  padding: 10px;
+  scale: 1.3;
 }
 
 .swiper:not(:hover) {
@@ -74,5 +85,13 @@ export default defineComponent({
   .swiper-custom-button-next {
     opacity: 0;
   }
+}
+
+.swiper-pagination-bullet {
+  background-color: var(--color-grey);
+  transition: background-color 200ms ease-in-out;
+}
+.swiper-pagination-bullet-active {
+  background-color: var(--color-black);
 }
 </style>

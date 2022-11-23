@@ -62,18 +62,30 @@ export default defineComponent({
   display: flex;
   height: auto;
   flex-direction: row;
+  @include mobile {
+    flex-direction: column;
+  }
 
   &:nth-child(even) {
     flex-direction: row-reverse;
+    @include mobile {
+      flex-direction: column;
+    }
   }
 
   .project-contents {
     width: 60%;
+    @include mobile {
+      width: 100%;
+    }
   }
 
   .project-carousel {
     width: 40%;
     border-radius: 10px;
+    @include mobile {
+      width: 100%;
+    }
     img {
       aspect-ratio: 5 / 4;
       object-position: center;

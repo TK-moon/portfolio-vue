@@ -18,6 +18,12 @@
 	}
 }
 
+@mixin common {
+	--color-black: #000000;
+	--color-grey: #303133;
+	--color-white: #ffffff;
+}
+
 @mixin lightmode {
 	--header-background-color: rgba(255, 255, 255, 0.5);
 
