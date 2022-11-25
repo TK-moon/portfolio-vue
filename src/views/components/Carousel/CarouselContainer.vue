@@ -61,7 +61,6 @@ export default defineComponent({
     position: absolute;
     top: 50%;
     display: flex;
-    justify-content: center;
     align-items: center;
     z-index: 10;
     opacity: 1;
@@ -83,10 +82,14 @@ export default defineComponent({
 
   .swiper-custom-button-prev {
     left: 10px;
+    justify-content: flex-start;
+    padding-left: 9px;
   }
 
   .swiper-custom-button-next {
     right: 10px;
+    justify-content: flex-end;
+    padding-right: 9px;
   }
 
   &:not(:hover) {
