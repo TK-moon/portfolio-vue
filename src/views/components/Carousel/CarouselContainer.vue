@@ -6,6 +6,7 @@
     :modules="swiper_modules"
     @_swiper="setControlledSwiper"
     loop
+    :speed="200"
   >
     <slot></slot>
     <button
@@ -54,7 +55,6 @@ export default defineComponent({
   width: 100%;
   height: 100%;
   box-shadow: 0 5px 10px var(--color-shadow);
-  border: 1px solid var(--color-shadow);
   .swiper-wrapper .swiper-slide {
     display: flex;
     height: 100%;
