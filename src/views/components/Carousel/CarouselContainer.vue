@@ -8,10 +8,18 @@
     loop
   >
     <slot></slot>
-    <button class="swiper-custom-button-prev" @click="controlledSwiper?.slidePrev()">
+    <button
+      class="swiper-custom-button-prev"
+      @click="controlledSwiper?.slidePrev()"
+      aria-label="캐러셀 이전 이미지 보기"
+    >
       <font-awesome-icon :icon="['fas', 'chevron-left']" size="lg" />
     </button>
-    <button class="swiper-custom-button-next" @click="controlledSwiper?.slideNext()">
+    <button
+      class="swiper-custom-button-next"
+      @click="controlledSwiper?.slideNext()"
+      aria-label="캐러셀 다음 이미지 보기"
+    >
       <font-awesome-icon :icon="['fas', 'chevron-right']" size="lg" />
     </button>
   </Swiper>
