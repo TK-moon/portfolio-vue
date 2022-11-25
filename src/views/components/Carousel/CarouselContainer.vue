@@ -56,12 +56,44 @@ export default defineComponent({
     }
   }
 
+  .swiper-custom-button-prev,
+  .swiper-custom-button-next {
+    position: absolute;
+    top: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    opacity: 1;
+    translate: 0 -50%;
+    transition: opacity 200ms ease-in-out, background-color 100ms ease-in-out;
+    color: var(--color-white);
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.3);
+    &:active {
+      background-color: rgba($color: #000000, $alpha: 0.5);
+    }
+
+    @include mobile {
+      display: none;
+    }
+  }
+
   .swiper-custom-button-prev {
     left: 10px;
   }
 
   .swiper-custom-button-next {
     right: 10px;
+  }
+
+  &:not(:hover) {
+    .swiper-custom-button-prev,
+    .swiper-custom-button-next {
+      opacity: 0;
+    }
   }
 
   .swiper-pagination {
@@ -71,34 +103,6 @@ export default defineComponent({
       &.swiper-pagination-bullet-active {
         background-color: var(--color-black);
       }
-    }
-  }
-
-  .swiper-custom-button-prev,
-  .swiper-custom-button-next {
-    position: absolute;
-    top: 50%;
-    z-index: 10;
-    opacity: 1;
-    translate: 0 -50%;
-    transition: opacity 200ms ease-in-out, background-color 100ms ease-in-out;
-    color: var(--color-grey);
-    width: 30px;
-    height: 30px;
-    border-radius: 100%;
-    &:active {
-      background-color: rgba($color: #000000, $alpha: 0.2);
-    }
-
-    @include mobile {
-      display: none;
-    }
-  }
-
-  &:not(:hover) {
-    .swiper-custom-button-prev,
-    .swiper-custom-button-next {
-      opacity: 0;
     }
   }
 }
