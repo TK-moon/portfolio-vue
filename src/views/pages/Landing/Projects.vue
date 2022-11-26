@@ -3,26 +3,29 @@
     <template #title>Projects</template>
     <template #contents>
       <div class="project-container">
-        <div class="project-wrapper">
-          <div class="project-contents">
-            <h4 class="project-title">
-              1. 포스티 상품목록 필터 기능
-              <span><ProjectTag type="business" /></span>
-            </h4>
-            <p class="project-description">
-              포스티 상품목록 페이지에 필터 기능을 추가하였습니다.
-              <br />
-              React Query를 사용하여 복잡한 코드를 단순화하고, isLoading, isFetching을 이용한 로딩 UI를 구현하였으며,
-              queryKey를 이용하여 적절히 데이터를 캐싱하였습니다.
-              <br />
-              Storybook을 작성하여 협업하는 비개발직군의 코워커들이 컴포넌트의 모든 상태를 확인할 수 있게 하였으며,
-              Jest와 React Testing Library를 이용한 테스트 코드를 작성하여 코드의 신뢰도를 높혔습니다.
-            </p>
+        <section class="project-wrapper">
+          <article class="project-contents">
+            <div class="project-title">
+              <h4>1. 포스티 상품목록 필터 기능</h4>
+              <ProjectTag type="business" />
+            </div>
+            <div class="project-description">
+              <p>포스티 상품목록 페이지에 필터 기능을 추가하였습니다.</p>
+              <p>
+                React Query를 사용하여 복잡한 코드를 단순화하고, isLoading, isFetching을 이용한 로딩 UI를 구현하였으며,
+                queryKey를 이용하여 적절히 데이터를 캐싱하였습니다.
+              </p>
+              <p>
+                Storybook을 작성하여 협업하는 비개발직군의 코워커들이 Control Panel을 이용하여 컴포넌트의 모든 상태를
+                확인할 수 있게 하였으며, Jest와 React Testing Library를 이용한 테스트 코드를 작성하여 코드의 신뢰도를
+                높혔습니다.
+              </p>
+            </div>
             <p class="project-hashtags">#Next.js #React-Query #Jest #React-Testing-Library</p>
             <ul class="project-link_list">
               <li>포스티 상품목록 | <a>https://posty.kr/categories/871</a></li>
             </ul>
-          </div>
+          </article>
           <CarouselContainer class="project-carousel">
             <SwiperSlide>
               <img src="@/assets/images/projects/posty/posty-plp-filter-1.png" alt="포스티 프로젝트 이미지 1" />
@@ -37,49 +40,64 @@
               <img src="@/assets/images/projects/posty/posty-plp-filter-4.png" alt="포스티 프로젝트 이미지 4" />
             </SwiperSlide>
           </CarouselContainer>
-        </div>
-        <div class="project-wrapper">
-          <div class="project-contents">
-            <h4 class="project-title">
-              2. 모인 해외송금 서비스 리뉴얼
-              <span><ProjectTag type="business" /></span>
-            </h4>
-            <p class="project-description">
-              모인 해외송금 서비스의 개인/법인 랜딩 등의 리뉴얼 프로젝트를 진행하였습니다.<br />
-              리팩토링 과정을 거쳐 레거시 코드를 일부 제거하였고, D3.js를 활용하여 3D 지구본 회전, 환율 차트 구현 등의
-              작업과 인터랙션 디자인/구현 작업 및 렌더링 최적화를 진행하였습니다.
-            </p>
-            <p class="project-hashtags">#D3.js #React.js #Typescript #Scroll_Interaction</p>
+        </section>
+        <section class="project-wrapper">
+          <article class="project-contents">
+            <div class="project-title">
+              <h4>2. 모인 해외송금 서비스 리뉴얼</h4>
+              <ProjectTag type="business" />
+            </div>
+            <div class="project-description">
+              <p>모인 해외송금 서비스의 개인/법인 랜딩 등의 리뉴얼 프로젝트를 진행하였습니다.</p>
+              <p>
+                랜딩 디자인 개편 프로젝트를 진행하며 리팩토링 과정을 거쳐 레거시 코드를 대폭 제거하였고, GeoJson
+                데이터를 TopoJson으로 변경하여 D3.js로 3D Globe 렌더링 및 회전 애니메이션을 구현하였습니다. 이 과정에서
+                Request Animation Frame을 이용한 렌더링 최적화 및 Intersection Observer를 활용하여 애니메이션을
+                트리거하여 성능을 최적화 하였습니다.
+              </p>
+              <p>
+                D3.js로 환율 데이터를 선 차트로 시각화하고, 데스크탑에서는 hover, 모바일 디바이스에서는 터치 이벤트를
+                listen 하여 tooltip 이 출력되는 차트를 구현 하였습니다.
+              </p>
+            </div>
+            <p class="project-hashtags">#D3.js #React.js #Typescript #Scroll_Interaction #Request_Animation_Frame</p>
             <ul class="project-link_list">
               <li>개인 랜딩 | <a>https://themoin.com</a></li>
               <li>법인 랜딩 | <a>https://www.themoin.com/business</a></li>
+              <li>환율 차트 | <a>https://www.themoin.com/currency/info</a></li>
             </ul>
-          </div>
+          </article>
           <CarouselContainer class="project-carousel">
             <SwiperSlide>
-              <img src="@/assets/images/projects/moin/portfolio5-1.png" alt="모인 프로젝트 이미지 1" />
+              <img src="@/assets/images/projects/moin/moin-landing-1.png" alt="모인 프로젝트 이미지 1" />
             </SwiperSlide>
             <SwiperSlide>
-              <img src="@/assets/images/projects/moin/portfolio5-2.png" alt="모인 프로젝트 이미지 2" />
+              <img src="@/assets/images/projects/moin/moin-landing-2.png" alt="모인 프로젝트 이미지 2" />
             </SwiperSlide>
             <SwiperSlide>
-              <img src="@/assets/images/projects/moin/portfolio5-3.png" alt="모인 프로젝트 이미지 3" />
+              <img src="@/assets/images/projects/moin/moin-landing-3.png" alt="모인 프로젝트 이미지 3" />
             </SwiperSlide>
             <SwiperSlide>
-              <img src="@/assets/images/projects/moin/portfolio5-4.png" alt="모인 프로젝트 이미지 4" />
+              <img src="@/assets/images/projects/moin/moin-landing-4.png" alt="모인 프로젝트 이미지 4" />
             </SwiperSlide>
             <SwiperSlide>
-              <img src="@/assets/images/projects/moin/portfolio5-5.png" alt="모인 프로젝트 이미지 5" />
+              <img src="@/assets/images/projects/moin/moin-landing-5.png" alt="모인 프로젝트 이미지 5" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src="@/assets/images/projects/moin/moin-chart-1.png" alt="모인 프로젝트 이미지 6" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src="@/assets/images/projects/moin/moin-chart-2.png" alt="모인 프로젝트 이미지 7" />
             </SwiperSlide>
           </CarouselContainer>
-        </div>
-        <div class="project-wrapper">
-          <div class="project-contents">asdf</div>
+        </section>
+        <section class="project-wrapper">
+          <article class="project-contents">asdf</article>
           <CarouselContainer class="project-carousel">
             <SwiperSlide><img src="@/assets/images/portfolio2-1.png" /></SwiperSlide>
             <SwiperSlide><img src="@/assets/images/portfolio2-2.png" /></SwiperSlide>
           </CarouselContainer>
-        </div>
+        </section>
       </div>
     </template>
   </LandingSubPageLayout>
@@ -150,21 +168,40 @@ export default defineComponent({
   }
 
   .project-title {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    row-gap: 5px;
+    flex-wrap: wrap;
     font-size: 20px;
     margin-bottom: 20px;
   }
 
   .project-description {
-    font-size: 16px;
     margin-bottom: 20px;
+    p {
+      font-size: 16px;
+      white-space: pre-wrap;
+      margin-bottom: 10px;
+      @include mobile {
+        font-size: 14px;
+      }
+    }
   }
 
   .project-hashtags {
     font-size: 15px;
+    @include mobile {
+      font-size: 12px;
+    }
   }
 
   .project-link_list {
     padding-left: 10px;
+    font-size: 16px;
+    @include mobile {
+      font-size: 14px;
+    }
     li {
       list-style-position: inside;
     }

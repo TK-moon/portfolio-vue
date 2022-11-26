@@ -37,5 +37,6 @@ export default defineComponent({
   padding: 1px 5px;
   border-radius: 3px;
   color: #fff;
+  white-space: nowrap;
 }
 </style>
