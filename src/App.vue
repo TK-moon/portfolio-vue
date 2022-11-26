@@ -25,18 +25,7 @@ export default defineComponent({
 
     return { colorTheme }
   },
-  methods: {
-    getColorThemeClass() {
-      switch (this.colorTheme) {
-        case "light-mode":
-          return "light-mode"
-        case "dark-mode":
-          return "dark-mode"
-        case "os-theme-mode":
-          return "os-theme-mode"
-      }
-    },
-  },
+  methods: {},
   mounted() {
     const vh = window.innerHeight * 0.01
     document.documentElement.style.setProperty("--vh", `${vh}px`)
