@@ -174,12 +174,18 @@ export default defineComponent({
   height: auto;
   flex-direction: row;
   column-gap: 50px;
+  @include tablet {
+    flex-direction: column;
+  }
   @include mobile {
     flex-direction: column;
   }
 
   &:nth-child(even) {
     flex-direction: row-reverse;
+    @include tablet {
+      flex-direction: column;
+    }
     @include mobile {
       flex-direction: column;
     }
@@ -191,39 +197,42 @@ export default defineComponent({
     padding: 30px 0;
     color: var(--color-primary-text);
     width: 60%;
+    @include tablet {
+      width: 100%;
+    }
     @include mobile {
       width: 100%;
     }
-  }
 
-  .project-title {
-    display: flex;
-    align-items: center;
-    column-gap: 10px;
-    row-gap: 5px;
-    flex-wrap: wrap;
-    font-size: 20px;
-    margin-bottom: 20px;
-  }
+    .project-title {
+      display: flex;
+      align-items: center;
+      column-gap: 10px;
+      row-gap: 5px;
+      flex-wrap: wrap;
+      font-size: 20px;
+      margin-bottom: 20px;
+    }
 
-  .project-description {
-    margin-bottom: 20px;
-    p {
-      font-size: 16px;
+    .project-description {
+      margin-bottom: 20px;
+      p {
+        font-size: 16px;
 
-      white-space: pre-line;
-      word-break: keep-all;
-      margin-bottom: 10px;
-      @include mobile {
-        font-size: 14px;
+        white-space: pre-line;
+        word-break: keep-all;
+        margin-bottom: 10px;
+        @include mobile {
+          font-size: 14px;
+        }
       }
     }
-  }
 
-  .project-hashtags {
-    font-size: 15px;
-    @include mobile {
-      font-size: 12px;
+    .project-hashtags {
+      font-size: 15px;
+      @include mobile {
+        font-size: 12px;
+      }
     }
   }
 
@@ -241,7 +250,9 @@ export default defineComponent({
   .project-carousel {
     width: 40%;
     border-radius: 10px;
-    background-color: var(--color-lightgrey);
+    @include tablet {
+      width: 100%;
+    }
     @include mobile {
       width: 100%;
     }
