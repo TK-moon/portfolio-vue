@@ -92,10 +92,40 @@
           </CarouselContainer>
         </section>
         <section class="project-wrapper">
-          <article class="project-contents">asdf</article>
+          <article class="project-contents">
+            <div class="project-title">
+              <h4>3. 마이크로 프론트엔드 아키텍쳐 구현</h4>
+              <ProjectTag type="individual" />
+            </div>
+            <div class="project-description">
+              <p>Webpack5의 Module Federation Plugin을 이용하여 Micro Frontend Architecture를 구현하였습니다.</p>
+              <p>
+                하나의 프로젝트가 여러 개의 서비스들을 제공하는 경우, 작은 단위의 변경사항 하나만 있어도 전체를 빌드하고
+                배포하는 과정이 비효율적으로 느껴졌습니다.
+              </p>
+              <p>
+                Module Federation Plugin을 이용하면, 하나의 프로젝트를 원하는 단위의 개별 프로젝트로 생성 및 배포할 수
+                있다는 점을 알게되었습니다. 개별 프로젝트들이 공용으로 사용하는 모듈을 부모 컨테이너 앱에서 공유하여
+                용량을 줄이도록 구현하였으며, 로컬 개발 환경 뿐만 아니라 AWS로 배포하여도 정상적인 라우팅이 가능한것을
+                확인하였습니다.
+              </p>
+              <p>
+                서비스별로 담당하는 팀이 분리되어 있는 조직구조를 가진 회사나, 빌드 속도가 현저히 느린 경우 현업에서
+                적용해보고 싶은 아키텍쳐입니다.
+              </p>
+            </div>
+            <p class="project-hashtags">#Webpack #Module_Federation_Plugin #Webpack_Customizing</p>
+            <ul class="project-link_list">
+              <li>Github Repository | <a>https://github.com/TK-moon/micro-frontend-architecture</a></li>
+            </ul>
+          </article>
           <CarouselContainer class="project-carousel">
-            <SwiperSlide><img src="@/assets/images/portfolio2-1.png" /></SwiperSlide>
-            <SwiperSlide><img src="@/assets/images/portfolio2-2.png" /></SwiperSlide>
+            <SwiperSlide>
+              <img src="@/assets/images/projects/micro-frontend-architecture/webpack5-logo.png" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src="@/assets/images/projects/micro-frontend-architecture/micro-frontend-architecture.png" />
+            </SwiperSlide>
           </CarouselContainer>
         </section>
       </div>
@@ -161,7 +191,6 @@ export default defineComponent({
     padding: 30px 0;
     color: var(--color-primary-text);
     width: 60%;
-    /* word-break: keep-all; */
     @include mobile {
       width: 100%;
     }
@@ -181,7 +210,9 @@ export default defineComponent({
     margin-bottom: 20px;
     p {
       font-size: 16px;
-      white-space: pre-wrap;
+
+      white-space: pre-line;
+      word-break: keep-all;
       margin-bottom: 10px;
       @include mobile {
         font-size: 14px;
