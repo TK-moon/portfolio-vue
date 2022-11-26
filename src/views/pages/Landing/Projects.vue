@@ -23,7 +23,7 @@
             </div>
             <p class="project-hashtags">#Next.js #React-Query #Jest #React-Testing-Library</p>
             <ul class="project-link_list">
-              <li>포스티 상품목록 | <a>https://posty.kr/categories/871</a></li>
+              <li>포스티 상품목록 | <Link href="https://posty.kr/categories/871" /></li>
             </ul>
           </article>
           <CarouselContainer class="project-carousel">
@@ -62,9 +62,9 @@
             </div>
             <p class="project-hashtags">#D3.js #React.js #Typescript #Scroll_Interaction #Request_Animation_Frame</p>
             <ul class="project-link_list">
-              <li>개인 랜딩 | <a>https://themoin.com</a></li>
-              <li>법인 랜딩 | <a>https://www.themoin.com/business</a></li>
-              <li>환율 차트 | <a>https://www.themoin.com/currency/info</a></li>
+              <li>개인 랜딩 | <Link href="https://themoin.com" /></li>
+              <li>법인 랜딩 | <Link href="https://www.themoin.com/business" /></li>
+              <li>환율 차트 | <Link href="https://www.themoin.com/currency/info" /></li>
             </ul>
           </article>
           <CarouselContainer class="project-carousel">
@@ -116,7 +116,7 @@
             </div>
             <p class="project-hashtags">#Webpack #Module_Federation_Plugin #Webpack_Customizing</p>
             <ul class="project-link_list">
-              <li>Github Repository | <a>https://github.com/TK-moon/micro-frontend-architecture</a></li>
+              <li>Github Repository | <Link href="https://github.com/TK-moon/micro-frontend-architecture" /></li>
             </ul>
           </article>
           <CarouselContainer class="project-carousel">
@@ -140,6 +140,7 @@ import { SwiperSlide } from "swiper/vue/swiper-vue"
 import LandingSubPageLayout from "@/layouts/LandingSubPageLayout.vue"
 import CarouselContainer from "@/views/components/Carousel/CarouselContainer.vue"
 import ProjectTag from "@/views/components/ProjectTag.vue"
+import Link from "@/views/components/Link.vue"
 
 export default defineComponent({
   components: {
@@ -147,6 +148,7 @@ export default defineComponent({
     CarouselContainer,
     SwiperSlide,
     ProjectTag,
+    Link,
   },
   setup() {
     return {}
