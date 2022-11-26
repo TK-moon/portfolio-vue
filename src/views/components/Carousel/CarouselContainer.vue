@@ -64,6 +64,7 @@ export default defineComponent({
   .swiper-wrapper .swiper-slide {
     display: flex;
     height: 100%;
+    background-color: var(--color-lightgrey);
     & > :is(img, div) {
       width: inherit !important;
       height: inherit !important;
