@@ -24,9 +24,6 @@ export default defineComponent({
     ])
     return { text_map }
   },
-  mounted: function () {
-    console.log(this.type)
-  },
 })
 </script>
 
