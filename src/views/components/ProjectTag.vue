@@ -1,5 +1,5 @@
 <template>
-  <span class="project-tag">
+  <span class="project-tag" :class="`tag-type-${type}`">
     {{ text_map.get(type) }}
   </span>
 </template>
@@ -30,10 +30,18 @@ export default defineComponent({
 <style lang="scss" scoped>
 .project-tag {
   font-size: 12px;
-  background-color: var(--color-primary);
+  background-color: var(--color-grey);
   padding: 1px 5px;
   border-radius: 3px;
   color: #fff;
   white-space: nowrap;
+}
+
+.tag-type-business {
+  background-color: var(--color-primary);
+}
+
+.tag-type-individual {
+  background-color: var(--color-success);
 }
 </style>
