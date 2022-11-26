@@ -1,8 +1,8 @@
 <template>
   <section class="landing-sub-page-layout" ref="page">
-    <div class="landing-sub-page-title">
+    <h2 class="landing-sub-page-title">
       <slot name="title"></slot>
-    </div>
+    </h2>
     <div class="landing-sub-page-contents">
       <slot name="contents"></slot>
     </div>
@@ -28,15 +28,18 @@ export default defineComponent({})
 }
 .landing-sub-page-title {
   color: var(--color-primary-text);
-  font-size: 1.17rem;
+  font-size: 28px;
   font-weight: bold;
-  position: sticky;
-  top: 80px;
+  margin-bottom: 30px;
+  /* position: sticky;
+  top: 80px; */
   @include tablet {
-    top: 80px;
+    font-size: 24px;
+    /* top: 80px; */
   }
   @include mobile {
-    top: 60px;
+    font-size: 20px;
+    /* top: 60px; */
   }
 }
 </style>

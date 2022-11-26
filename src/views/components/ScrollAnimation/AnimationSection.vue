@@ -4,7 +4,7 @@
     class="animation-section"
     :style="{ marginBottom: disable_multiple_animation ? '100vh' : '0' }"
   >
-    <Animator :sectionRef="sectionRef" :active="active" :animation="animation">
+    <Animator :sectionRef="sectionRef" :active="true" :animation="animation">
       <slot></slot>
     </Animator>
   </section>
@@ -14,6 +14,7 @@
 import { defineComponent, ref, PropType } from "vue"
 import Animator from "./Animator.vue"
 import { AnimationType } from "@/utils/animation_utils"
+// import useIntersectionObserver from "@/lib/useIntersectionObserver"
 
 export default defineComponent({
   components: { Animator },
@@ -27,14 +28,22 @@ export default defineComponent({
   },
   data() {
     return {
-      active: false,
+      /**
+       * @note
+       * Intersection Observer로 isIntersecting 상태에 따라 active 상태를 조절해서 useScrollY(scroll listner)를 disable 하려고 하였으나,
+       * 모바일 디바이스에서 Intersection Observer 동작이 느린 이슈로 사용 불가
+       */
+      // active: false,
     }
   },
   mounted: function () {
-    this.active = true
+    // useIntersectionObserver(this.sectionRef, { rootMargin: "100px" }, (entries) => {
+    //   const entry = entries[0]
+    //   this.active = entry.isIntersecting ? true : false
+    // })
   },
   unmounted: function () {
-    this.active = false
+    // this.active = false
   },
 })
 </script>

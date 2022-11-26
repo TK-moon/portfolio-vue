@@ -1,5 +1,9 @@
 <template>
-  <div class="animator" ref="animatorRef">
+  <div
+    ref="animatorRef"
+    class="animator"
+    :class="[active ? 'animator-active' : 'animator-deactive', in_range ? 'animator-in-range' : 'animator-outof-range']"
+  >
     <slot></slot>
   </div>
 </template>
@@ -18,12 +22,16 @@ export default defineComponent({
      * use computed section_ref
      */
     sectionRef: { type: HTMLElement },
+    /**
+     * @deprecated
+     * Intersection Observer가 모바일 디바이스에서 빠르게 동작하지 않는 이슈로 사용 금지
+     */
     active: { type: Boolean, required: true },
     animation: { type: Object as PropType<AnimationType[]>, required: true },
   },
   setup(props) {
     const animatorRef = ref<HTMLElement>()
-    const { scrollY } = useScrollY(10)
+    const { scrollY } = useScrollY(0)
     const section_ref = computed(() => props.sectionRef)
     const animation_timeline_data = getAnimationTimelineData(props.animation)
 
@@ -35,6 +43,7 @@ export default defineComponent({
   data() {
     return {
       RAF_timeout: undefined as number | undefined,
+      in_range: true,
     }
   },
   methods: {
@@ -75,13 +84,18 @@ export default defineComponent({
       this.RAF_timeout = requestAnimationFrame(() => {
         const scroll_percentage = this.getScrollPercentage(nv)
 
-        if (scroll_percentage <= 0) {
-          return this.initializeStartAnimation()
-        } else if (scroll_percentage >= 100) {
-          return this.initializeEndAnimation()
+        const is_out_of_scroll_range = 0 >= scroll_percentage || scroll_percentage >= 100
+        if (is_out_of_scroll_range) {
+          this.in_range = false
+          if (scroll_percentage <= 0) {
+            return this.initializeStartAnimation()
+          } else if (scroll_percentage >= 100) {
+            return this.initializeEndAnimation()
+          }
         }
+        this.in_range = true
 
-        this.animation_timeline_data.animation_functions.map((v) => {
+        this.animation_timeline_data.animation_functions.forEach((v) => {
           v(scroll_percentage, animatorRef)
         })
       })
@@ -104,5 +118,20 @@ export default defineComponent({
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* &.animator-active {
+    will-change: auto;
+  }
+  &.animator-deactive {
+    will-change: unset;
+    z-index: -1;
+  } */
+
+  &.animator-in-range {
+    will-change: auto;
+  }
+  &.animator-outof-range {
+    will-change: unset;
+    z-index: -1;
+  }
 }
 </style>
