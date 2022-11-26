@@ -5,7 +5,7 @@
     :space-between="20"
     :modules="swiper_modules"
     @_swiper="setControlledSwiper"
-    loop
+    :loop="loop"
     :speed="200"
   >
     <slot></slot>
@@ -32,6 +32,12 @@ import { Navigation, Pagination, Controller, Swiper as SwiperType } from "swiper
 import { Swiper } from "swiper/vue/swiper-vue"
 
 export default defineComponent({
+  props: {
+    loop: {
+      type: Boolean,
+      default: true,
+    },
+  },
   components: {
     Swiper,
   },
