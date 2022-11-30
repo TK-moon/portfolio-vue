@@ -39,6 +39,14 @@
             <SwiperSlide>
               <img src="@/assets/images/projects/posty/posty-plp-filter-4.png" alt="포스티 프로젝트 이미지 4" />
             </SwiperSlide>
+            <SwiperSlide>
+              <video controls>
+                <source
+                  src="https://user-images.githubusercontent.com/59918655/204772931-563a8dcf-7eb1-4b71-a92d-2594576dc425.mp4"
+                  type="video/mp4"
+                />
+              </video>
+            </SwiperSlide>
           </CarouselContainer>
         </section>
         <section class="project-wrapper">
