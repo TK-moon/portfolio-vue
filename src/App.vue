@@ -27,8 +27,11 @@ export default defineComponent({
   },
   methods: {},
   mounted() {
-    const vh = window.innerHeight * 0.01
-    document.documentElement.style.setProperty("--vh", `${vh}px`)
+    const RO = new ResizeObserver(() => {
+      const vh = window.innerHeight * 0.01
+      document.documentElement.style.setProperty("--vh", `${vh}px`)
+    })
+    RO.observe(document.body)
   },
 })
 </script>
