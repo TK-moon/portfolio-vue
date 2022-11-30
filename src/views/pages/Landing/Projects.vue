@@ -39,6 +39,14 @@
             <SwiperSlide>
               <img src="@/assets/images/projects/posty/posty-plp-filter-4.png" alt="포스티 프로젝트 이미지 4" />
             </SwiperSlide>
+            <SwiperSlide>
+              <video controls>
+                <source
+                  src="https://user-images.githubusercontent.com/59918655/204772931-563a8dcf-7eb1-4b71-a92d-2594576dc425.mp4"
+                  type="video/mp4"
+                />
+              </video>
+            </SwiperSlide>
           </CarouselContainer>
         </section>
         <section class="project-wrapper">
@@ -89,6 +97,22 @@
             <SwiperSlide>
               <img src="@/assets/images/projects/moin/moin-chart-2.png" alt="모인 프로젝트 이미지 7" />
             </SwiperSlide>
+            <SwiperSlide>
+              <video controls>
+                <source
+                  src="https://user-images.githubusercontent.com/59918655/204769802-1d040e73-cf5b-4d47-b395-d15afe3a1b98.mp4"
+                  type="video/mp4"
+                />
+              </video>
+            </SwiperSlide>
+            <SwiperSlide>
+              <video controls>
+                <source
+                  src="https://user-images.githubusercontent.com/59918655/204771114-c2a132c1-7046-44c0-a129-236a2722ceb4.mp4"
+                  type="video/mp4"
+                />
+              </video>
+            </SwiperSlide>
           </CarouselContainer>
         </section>
         <section class="project-wrapper">
@@ -110,8 +134,8 @@
                 확인하였습니다.
               </p>
               <p>
-                서비스별로 담당하는 팀이 분리되어 있는 조직구조를 가진 회사나, 빌드 속도가 현저히 느린 경우 현업에서
-                적용해보고 싶은 아키텍쳐입니다.
+                서비스별로 담당하는 팀이 분리되어 있는 조직구조를 가진 회사나, 빌드/배포 속도가 현저히 느린 경우
+                현업에서 적용해보고 싶은 아키텍쳐입니다.
               </p>
             </div>
             <p class="project-hashtags">#Webpack #Module_Federation_Plugin #Webpack_Customizing</p>
@@ -141,6 +165,7 @@ import LandingSubPageLayout from "@/layouts/LandingSubPageLayout.vue"
 import CarouselContainer from "@/views/components/Carousel/CarouselContainer.vue"
 import ProjectTag from "@/views/components/ProjectTag.vue"
 import Link from "@/views/components/Link.vue"
+import Swiper from "swiper"
 
 export default defineComponent({
   components: {
@@ -149,6 +174,7 @@ export default defineComponent({
     SwiperSlide,
     ProjectTag,
     Link,
+    Swiper,
   },
   setup() {
     return {}
@@ -259,6 +285,13 @@ export default defineComponent({
       width: 100%;
     }
     img {
+      aspect-ratio: 5 / 4;
+      object-position: center;
+      object-fit: contain;
+    }
+    video {
+      width: 100%;
+      height: 100%;
       aspect-ratio: 5 / 4;
       object-position: center;
       object-fit: contain;
