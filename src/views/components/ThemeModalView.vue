@@ -1,5 +1,5 @@
 <template>
-  <h1>테마 설정</h1>
+  <h1 class="modal-title">테마 설정</h1>
   <br />
   <div class="modal-grid">
     <ToggleRadio v-model="colorThemeRadio" value="light-mode" name="color-theme"> 라이트 모드 </ToggleRadio>
@@ -49,6 +49,9 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.modal-title {
+  font-size: 24px;
+}
 .modal-grid {
   display: grid;
   grid-template-columns: 1fr;
