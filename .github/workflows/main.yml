@@ -1,0 +1,50 @@
+name: Publish Portfolio
+
+on:
+  workflow_dispatch:
+
+jobs:
+  buile:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+      - name: Checkout source code.
+        uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+          always-auth: true
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        id: npm-cache
+        with:
+          path: "node_modules"
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package.lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
+
+      - name: Install dependencies
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
+        run: npm install
+
+      - name: Build
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
+        run: npm run build
+
+      - name: Push directory to another repository
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+          SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
+        with:
+          source-directory: "dist"
+          destination-github-username: "TK-moon"
+          destination-repository-name: "portfolio"
+          user-email: "tkmoon.dev@gmail.com"
+          target-branch: main
