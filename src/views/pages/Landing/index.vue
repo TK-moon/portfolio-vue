@@ -4,8 +4,7 @@
     <About id="about" />
     <Career id="career" />
     <Projects id="projects" />
-    <section id="projects">Projects</section>
-    <section id="contacts">Contact</section>
+    <Contacts id="contacts" />
   </main>
 </template>
 
@@ -15,6 +14,7 @@ import Main from "./Main.vue"
 import About from "./About.vue"
 import Career from "./Career.vue"
 import Projects from "./Projects.vue"
+import Contacts from "./Contacts.vue"
 
 export default defineComponent({
   components: {
@@ -22,6 +22,7 @@ export default defineComponent({
     About,
     Career,
     Projects,
+    Contacts,
   },
 })
 </script>
