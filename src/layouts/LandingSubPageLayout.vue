@@ -18,7 +18,7 @@ export default defineComponent({})
 .landing-sub-page-layout {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 100px 0;
+  padding: 150px 0;
   @include tablet {
     padding: 50px 20px;
   }
@@ -28,9 +28,10 @@ export default defineComponent({})
 }
 .landing-sub-page-title {
   color: var(--color-primary-text);
-  font-size: 28px;
+  font-size: 24px;
   font-weight: bold;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
+  text-align: center;
   /* position: sticky;
   top: 80px; */
   @include tablet {
@@ -38,6 +39,7 @@ export default defineComponent({})
     /* top: 80px; */
   }
   @include mobile {
+    text-align: left;
     font-size: 20px;
     /* top: 60px; */
   }

@@ -4,17 +4,17 @@
     <About id="about" />
     <Career id="career" />
     <Projects id="projects" />
-    <section id="projects">Projects</section>
-    <section id="contacts">Contact</section>
+    <Contacts id="contacts" />
   </main>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue"
-import Main from "./Main.vue"
-import About from "./About.vue"
-import Career from "./Career.vue"
-import Projects from "./Projects.vue"
+import Main from "./sections/Main.vue"
+import About from "./sections/About.vue"
+import Career from "./sections/Career.vue"
+import Projects from "./sections/Projects.vue"
+import Contacts from "./sections/Contacts.vue"
 
 export default defineComponent({
   components: {
@@ -22,15 +22,9 @@ export default defineComponent({
     About,
     Career,
     Projects,
+    Contacts,
   },
 })
 </script>
 
-<style lang="scss" scoped>
-main {
-  section {
-    /** Section Debug Code */
-    border-bottom: 1px solid #000;
-  }
-}
-</style>
+<style lang="scss" scoped></style>
