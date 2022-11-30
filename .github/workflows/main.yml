@@ -34,7 +34,7 @@ jobs:
         run: npm install
 
       - name: Push directory to another repository
-        uses: cpina/github-action-push-to-another-repository@v1.5.1
+        uses: cpina/github-action-push-to-another-repository@main
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
           SSH_DEPLOY_KEY: ${{ secrets.SSH_DEPLOY_KEY }}
