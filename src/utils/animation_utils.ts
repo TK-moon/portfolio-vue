@@ -90,7 +90,6 @@ type getAnimationTimelineDataReturnType = {
 }
 export const getAnimationTimelineData = (animation: AnimationType[]): getAnimationTimelineDataReturnType => {
   const scroll_timeline_data = generateScrollTimeline(animation)
-  console.log(scroll_timeline_data)
   const animation_functions = generateScrollAnimationFunctionsByScrollTimeline(scroll_timeline_data)
   return {
     start_style: scroll_timeline_data[0].animation.from,

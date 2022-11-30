@@ -38,7 +38,6 @@ export default defineComponent({
     const sentinal = this.$refs[this.sentinalName] as Element
 
     const handler = (entries: IntersectionObserverEntry[]) => {
-      console.log(entries[0].intersectionRatio)
       this.ratio = entries[0].intersectionRatio
       if (entries[0].isIntersecting) {
         this.isIntersectingElement = true
