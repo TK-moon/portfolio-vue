@@ -145,10 +145,16 @@
           </article>
           <CarouselContainer class="project-carousel">
             <SwiperSlide>
-              <img src="@/assets/images/projects/micro-frontend-architecture/webpack5-logo.png" />
+              <img
+                src="@/assets/images/projects/micro-frontend-architecture/webpack5-logo.png"
+                alt="마이크로 프론트엔드 아키텍쳐 이미지 1"
+              />
             </SwiperSlide>
             <SwiperSlide>
-              <img src="@/assets/images/projects/micro-frontend-architecture/micro-frontend-architecture.png" />
+              <img
+                src="@/assets/images/projects/micro-frontend-architecture/micro-frontend-architecture.png"
+                alt="마이크로 프론트엔드 아키텍쳐 이미지 2"
+              />
             </SwiperSlide>
           </CarouselContainer>
         </section>
