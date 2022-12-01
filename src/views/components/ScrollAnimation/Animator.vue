@@ -117,10 +117,13 @@ export default defineComponent({
   watch: {
     scrollY(nv) {
       if (!this.animatorRef || !this.active) return
-      if (this.RAF_timeout) {
-        cancelAnimationFrame(this.RAF_timeout)
-        this.RAF_timeout = undefined
-      }
+      /**
+       * 아래 로직 없을때 퍼포먼스 테스트중
+       */
+      // if (this.RAF_timeout) {
+      //   cancelAnimationFrame(this.RAF_timeout)
+      //   this.RAF_timeout = undefined
+      // }
       const animatorRef = this.animatorRef
       if (!this.section_ref || !animatorRef) return
       this.RAF_timeout = requestAnimationFrame(() => {
