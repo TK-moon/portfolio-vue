@@ -9,6 +9,9 @@
               <h4>1. 포스티 상품목록 필터 기능</h4>
               <ProjectTag type="business" />
             </div>
+            <div class="project-duration">
+              <p>2022.09 ~ 2022.10</p>
+            </div>
             <div class="project-description">
               <p>포스티 상품목록 페이지에 필터 기능을 추가하였습니다.</p>
               <p>
@@ -55,6 +58,10 @@
               <h4>2. 모인 해외송금 서비스 리뉴얼</h4>
               <ProjectTag type="business" />
             </div>
+            <div class="project-duration">
+              <p>랜딩 : 2021.05 ~ 2021.06</p>
+              <p>차트 : 2021.10 ~ 2021.10</p>
+            </div>
             <div class="project-description">
               <p>모인 해외송금 서비스의 개인/법인 랜딩 등의 리뉴얼 프로젝트를 진행하였습니다.</p>
               <p>
@@ -65,7 +72,7 @@
               </p>
               <p>
                 D3.js로 환율 데이터를 선 차트로 시각화하고, 데스크탑에서는 hover, 모바일 디바이스에서는 터치 이벤트를
-                listen 하여 tooltip 이 출력되는 차트를 구현 하였습니다.
+                감지하여 tooltip 이 출력되는 차트를 구현 하였습니다.
               </p>
             </div>
             <p class="project-hashtags">#D3.js #React.js #Typescript #Scroll_Interaction #Request_Animation_Frame</p>
@@ -120,6 +127,9 @@
             <div class="project-title">
               <h4>3. 마이크로 프론트엔드 아키텍쳐 구현</h4>
               <ProjectTag type="individual" />
+            </div>
+            <div class="project-duration">
+              <p>2022.02 ~ 2022.02</p>
             </div>
             <div class="project-description">
               <p>Webpack5의 Module Federation Plugin을 이용하여 Micro Frontend Architecture를 구현하였습니다.</p>
@@ -245,7 +255,17 @@ export default defineComponent({
       row-gap: 5px;
       flex-wrap: wrap;
       font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .project-duration {
+      text-align: right;
       margin-bottom: 20px;
+      font-size: 15px;
+      color: var(--color-secondary-text);
+      @include mobile {
+        font-size: 14px;
+      }
     }
 
     .project-description {
