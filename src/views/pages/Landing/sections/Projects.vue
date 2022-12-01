@@ -6,19 +6,22 @@
         <section class="project-wrapper">
           <article class="project-contents">
             <div class="project-title">
-              <h4>1. 포스티 상품목록 필터 기능</h4>
+              <h3>1. 포스티 상품목록 필터 기능</h3>
               <ProjectTag type="business" />
+            </div>
+            <div class="project-duration">
+              <p>2022.09 ~ 2022.10</p>
             </div>
             <div class="project-description">
               <p>포스티 상품목록 페이지에 필터 기능을 추가하였습니다.</p>
               <p>
                 React Query를 사용하여 복잡한 코드를 단순화하고, isLoading, isFetching을 이용한 로딩 UI를 구현하였으며,
-                queryKey를 이용하여 적절히 데이터를 캐싱하였습니다.
+                queryKey를 이용하여 적절히 데이터를 캐싱 하였습니다.
               </p>
               <p>
-                Storybook을 작성하여 협업하는 비개발직군의 코워커들이 Control Panel을 이용하여 컴포넌트의 모든 상태를
+                Storybook을 작성하여 협업하는 비 개발 직군의 코워커들이 Control Panel을 이용하여 컴포넌트의 모든 상태를
                 확인할 수 있게 하였으며, Jest와 React Testing Library를 이용한 테스트 코드를 작성하여 코드의 신뢰도를
-                높혔습니다.
+                높였습니다.
               </p>
             </div>
             <p class="project-hashtags">#Next.js #React-Query #Jest #React-Testing-Library</p>
@@ -52,20 +55,24 @@
         <section class="project-wrapper">
           <article class="project-contents">
             <div class="project-title">
-              <h4>2. 모인 해외송금 서비스 리뉴얼</h4>
+              <h3>2. 모인 해외송금 서비스 리뉴얼</h3>
               <ProjectTag type="business" />
+            </div>
+            <div class="project-duration">
+              <p>랜딩 : 2021.05 ~ 2021.06</p>
+              <p>차트 : 2021.10 ~ 2021.10</p>
             </div>
             <div class="project-description">
               <p>모인 해외송금 서비스의 개인/법인 랜딩 등의 리뉴얼 프로젝트를 진행하였습니다.</p>
               <p>
                 랜딩 디자인 개편 프로젝트를 진행하며 리팩토링 과정을 거쳐 레거시 코드를 대폭 제거하였고, GeoJson
                 데이터를 TopoJson으로 변경하여 D3.js로 3D Globe 렌더링 및 회전 애니메이션을 구현하였습니다. 이 과정에서
-                Request Animation Frame을 이용한 렌더링 최적화 및 Intersection Observer를 활용하여 애니메이션을
-                트리거하여 성능을 최적화 하였습니다.
+                Request Animation Frame을 이용한 렌더링 최적화 및 Intersection Observer를 활용하여 애니메이션을 트리거
+                하여 성능을 최적화하였습니다.
               </p>
               <p>
                 D3.js로 환율 데이터를 선 차트로 시각화하고, 데스크탑에서는 hover, 모바일 디바이스에서는 터치 이벤트를
-                listen 하여 tooltip 이 출력되는 차트를 구현 하였습니다.
+                감지하여 tooltip 이 출력되는 차트를 구현하였습니다.
               </p>
             </div>
             <p class="project-hashtags">#D3.js #React.js #Typescript #Scroll_Interaction #Request_Animation_Frame</p>
@@ -118,8 +125,11 @@
         <section class="project-wrapper">
           <article class="project-contents">
             <div class="project-title">
-              <h4>3. 마이크로 프론트엔드 아키텍쳐 구현</h4>
+              <h3>3. 마이크로 프론트엔드 아키텍쳐 구현</h3>
               <ProjectTag type="individual" />
+            </div>
+            <div class="project-duration">
+              <p>2022.02 ~ 2022.02</p>
             </div>
             <div class="project-description">
               <p>Webpack5의 Module Federation Plugin을 이용하여 Micro Frontend Architecture를 구현하였습니다.</p>
@@ -129,13 +139,13 @@
               </p>
               <p>
                 Module Federation Plugin을 이용하면, 하나의 프로젝트를 원하는 단위의 개별 프로젝트로 생성 및 배포할 수
-                있다는 점을 알게되었습니다. 개별 프로젝트들이 공용으로 사용하는 모듈을 부모 컨테이너 앱에서 공유하여
-                용량을 줄이도록 구현하였으며, 로컬 개발 환경 뿐만 아니라 AWS로 배포하여도 정상적인 라우팅이 가능한것을
+                있다는 점을 알게 되었습니다. 개별 프로젝트들이 공용으로 사용하는 모듈을 부모 컨테이너 앱에서 공유하여
+                용량을 줄이도록 구현하였으며, 로컬 개발 환경뿐만 아니라 AWS로 배포하여도 정상적인 라우팅이 가능한 것을
                 확인하였습니다.
               </p>
               <p>
                 서비스별로 담당하는 팀이 분리되어 있는 조직구조를 가진 회사나, 빌드/배포 속도가 현저히 느린 경우
-                현업에서 적용해보고 싶은 아키텍쳐입니다.
+                현업에서 적용해 보고 싶은 아키텍쳐입니다.
               </p>
             </div>
             <p class="project-hashtags">#Webpack #Module_Federation_Plugin #Webpack_Customizing</p>
@@ -145,10 +155,16 @@
           </article>
           <CarouselContainer class="project-carousel">
             <SwiperSlide>
-              <img src="@/assets/images/projects/micro-frontend-architecture/webpack5-logo.png" />
+              <img
+                src="@/assets/images/projects/micro-frontend-architecture/webpack5-logo.png"
+                alt="마이크로 프론트엔드 아키텍쳐 이미지 1"
+              />
             </SwiperSlide>
             <SwiperSlide>
-              <img src="@/assets/images/projects/micro-frontend-architecture/micro-frontend-architecture.png" />
+              <img
+                src="@/assets/images/projects/micro-frontend-architecture/micro-frontend-architecture.png"
+                alt="마이크로 프론트엔드 아키텍쳐 이미지 2"
+              />
             </SwiperSlide>
           </CarouselContainer>
         </section>
@@ -239,7 +255,17 @@ export default defineComponent({
       row-gap: 5px;
       flex-wrap: wrap;
       font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .project-duration {
+      text-align: right;
       margin-bottom: 20px;
+      font-size: 15px;
+      color: var(--color-secondary-text);
+      @include mobile {
+        font-size: 14px;
+      }
     }
 
     .project-description {
