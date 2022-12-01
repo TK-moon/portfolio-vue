@@ -6,7 +6,7 @@
         <section class="project-wrapper">
           <article class="project-contents">
             <div class="project-title">
-              <h4>1. 포스티 상품목록 필터 기능</h4>
+              <h3>1. 포스티 상품목록 필터 기능</h3>
               <ProjectTag type="business" />
             </div>
             <div class="project-duration">
@@ -55,7 +55,7 @@
         <section class="project-wrapper">
           <article class="project-contents">
             <div class="project-title">
-              <h4>2. 모인 해외송금 서비스 리뉴얼</h4>
+              <h3>2. 모인 해외송금 서비스 리뉴얼</h3>
               <ProjectTag type="business" />
             </div>
             <div class="project-duration">
@@ -125,7 +125,7 @@
         <section class="project-wrapper">
           <article class="project-contents">
             <div class="project-title">
-              <h4>3. 마이크로 프론트엔드 아키텍쳐 구현</h4>
+              <h3>3. 마이크로 프론트엔드 아키텍쳐 구현</h3>
               <ProjectTag type="individual" />
             </div>
             <div class="project-duration">
