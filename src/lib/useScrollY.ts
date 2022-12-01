@@ -25,7 +25,7 @@ const useScrollY = (wait = 50): { scrollY: Ref<number>; centerScrollY: Ref<numbe
 
   const handleDebouceScroll = throttle(onScroll, wait)
 
-  onBeforeMount(() => window.addEventListener("scroll", handleDebouceScroll))
+  onBeforeMount(() => window.addEventListener("scroll", handleDebouceScroll, { passive: true, capture: false }))
   onBeforeUnmount(() => window.removeEventListener("scroll", handleDebouceScroll))
 
   return { scrollY, centerScrollY }
