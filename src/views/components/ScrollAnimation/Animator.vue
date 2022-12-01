@@ -128,12 +128,19 @@ export default defineComponent({
         const is_out_of_scroll_range = 0 >= scroll_percentage || scroll_percentage >= 100
         if (is_out_of_scroll_range) {
           this.in_range = false
+          if (this.animatorRef?.style) Object.assign(this.animatorRef?.style, { willChange: "unset" })
           if (scroll_percentage <= 0) {
             return this.initializeStartAnimation()
           } else if (scroll_percentage >= 100) {
             return this.initializeEndAnimation()
           }
         }
+
+        if (this.animatorRef?.style)
+          Object.assign(this.animatorRef?.style, {
+            willChange: this.animation_timeline_data.animation_keys.join(","),
+          })
+
         this.in_range = true
         this.animation_timeline_data.animation_functions.forEach((v) => {
           v(scroll_percentage, animatorRef)

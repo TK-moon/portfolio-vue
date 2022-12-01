@@ -82,18 +82,30 @@ const generateScrollAnimationFunctionsByScrollTimeline = (
   })
 }
 
+const getAnimationKeys = (animation: AnimationType[]) => {
+  const animation_keys = new Set<CSSProperties>()
+  animation.map((v) => {
+    const keys = Object.keys(v) as unknown as CSSProperties[]
+    keys.forEach((item) => animation_keys.add(item))
+  })
+  return Array.from(animation_keys)
+}
+
 type AnimationFunctionType = (scroll_percentage: number, element: HTMLElement) => void
 type getAnimationTimelineDataReturnType = {
   start_style: AnimationType
   end_style: AnimationType
   animation_functions: AnimationFunctionType[]
+  animation_keys: CSSProperties[]
 }
 export const getAnimationTimelineData = (animation: AnimationType[]): getAnimationTimelineDataReturnType => {
   const scroll_timeline_data = generateScrollTimeline(animation)
+  const animation_keys = getAnimationKeys(animation)
   const animation_functions = generateScrollAnimationFunctionsByScrollTimeline(scroll_timeline_data)
   return {
     start_style: scroll_timeline_data[0].animation.from,
     end_style: scroll_timeline_data[scroll_timeline_data.length - 1].animation.to,
     animation_functions,
+    animation_keys,
   }
 }
