@@ -4,7 +4,7 @@
     class="animation-section"
     :style="{ marginBottom: disable_multiple_animation ? '100vh' : '0' }"
   >
-    <Animator :sectionRef="sectionRef" :active="true" :animation="animation">
+    <Animator :sectionRef="() => sectionRef" :active="true" :animation="animation">
       <slot></slot>
     </Animator>
   </section>
@@ -31,7 +31,7 @@ export default defineComponent({
       /**
        * @note
        * Intersection Observer로 isIntersecting 상태에 따라 active 상태를 조절해서 useScrollY(scroll listner)를 disable 하려고 하였으나,
-       * 모바일 디바이스에서 Intersection Observer 동작이 느린 이슈로 사용 불가
+       * IOS 사파리에서 주소창이 가려질 때, Intersection Observer가 동작하지 않는 이슈로 사용 불가
        */
       // active: false,
     }
