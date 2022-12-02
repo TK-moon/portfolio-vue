@@ -1,9 +1,5 @@
 <template>
-  <div
-    ref="animatorRef"
-    class="animator"
-    :class="[active ? 'animator-active' : 'animator-deactive', in_range ? 'animator-in-range' : 'animator-outof-range']"
-  >
+  <div ref="animator_ref" class="animator" :class="[in_range ? 'animator-in-range' : 'animator-outof-range']">
     <slot></slot>
   </div>
 </template>
@@ -34,12 +30,16 @@ export default defineComponent({
     animation: { type: Object as PropType<AnimationType[]>, required: true },
   },
   setup(props) {
-    const animatorRef = ref<HTMLElement>()
-    const { scrollY } = useScrollY(0)
+    const animator_ref = ref<HTMLElement>()
+
+    const throttle_wait = 0
+    const { scrollY } = useScrollY(throttle_wait)
+    const is_RAF_activated = throttle_wait !== 0
+
     const section_ref = computed(() => props.sectionRef())
     const animation_timeline_data = getAnimationTimelineData(props.animation)
 
-    return { animatorRef, scrollY, section_ref, animation_timeline_data }
+    return { animator_ref, section_ref, scrollY, animation_timeline_data, is_RAF_activated }
   },
   mounted: function () {
     this.initializeStartAnimation()
@@ -91,6 +91,10 @@ export default defineComponent({
     //     })
     //   })
     // },
+    /**
+     * getScrollPercentage
+     * @param current_scroll
+     */
     getScrollPercentage: function (current_scroll: number) {
       if (!this.section_ref) {
         return 0
@@ -105,50 +109,58 @@ export default defineComponent({
       return scroll_percentage
     },
     initializeStartAnimation: function () {
-      console.log("TEST", this.animation_timeline_data.animation_keys)
       const animation_init_data = this.animation_timeline_data.start_style
-      if (this.animatorRef) Object.assign(this.animatorRef.style, animation_init_data)
+      if (this.animator_ref) Object.assign(this.animator_ref.style, animation_init_data)
     },
     initializeEndAnimation: function () {
       const animation_init_data = this.animation_timeline_data.end_style
-      if (this.animatorRef) Object.assign(this.animatorRef.style, animation_init_data)
+      if (this.animator_ref) Object.assign(this.animator_ref.style, animation_init_data)
+    },
+    renderAnimation: function (scroll: number) {
+      if (!this.animator_ref) return
+      const animatorRef = this.animator_ref
+
+      const scroll_percentage = this.getScrollPercentage(scroll)
+      const is_out_of_scroll_range = 0 >= scroll_percentage || scroll_percentage >= 100
+
+      if (is_out_of_scroll_range) {
+        this.in_range = false
+        Object.assign(this.animator_ref.style, { willChange: "unset" })
+        if (scroll_percentage <= 0) {
+          return this.initializeStartAnimation()
+        } else if (scroll_percentage >= 100) {
+          return this.initializeEndAnimation()
+        }
+      }
+
+      Object.assign(this.animator_ref.style, {
+        willChange: this.animation_timeline_data.animation_keys.join(","),
+      })
+
+      this.in_range = true
+      this.animation_timeline_data.animation_functions.forEach((renderSectionAnimation) => {
+        renderSectionAnimation(scroll_percentage, animatorRef)
+      })
+    },
+    initialAnimation: function (scroll: number) {
+      if (!this.animator_ref) return
+
+      if (this.is_RAF_activated) {
+        this.renderAnimation(scroll)
+      } else {
+        if (this.RAF_timeout) {
+          cancelAnimationFrame(this.RAF_timeout)
+          this.RAF_timeout = undefined
+        }
+        this.RAF_timeout = requestAnimationFrame(() => {
+          this.renderAnimation(scroll)
+        })
+      }
     },
   },
   watch: {
     scrollY(nv) {
-      if (!this.animatorRef || !this.active) return
-      /**
-       * 아래 로직 없을때 퍼포먼스 테스트중
-       */
-      // if (this.RAF_timeout) {
-      //   cancelAnimationFrame(this.RAF_timeout)
-      //   this.RAF_timeout = undefined
-      // }
-      const animatorRef = this.animatorRef
-      if (!this.section_ref || !animatorRef) return
-      this.RAF_timeout = requestAnimationFrame(() => {
-        const scroll_percentage = this.getScrollPercentage(nv)
-        const is_out_of_scroll_range = 0 >= scroll_percentage || scroll_percentage >= 100
-        if (is_out_of_scroll_range) {
-          this.in_range = false
-          if (this.animatorRef?.style) Object.assign(this.animatorRef?.style, { willChange: "unset" })
-          if (scroll_percentage <= 0) {
-            return this.initializeStartAnimation()
-          } else if (scroll_percentage >= 100) {
-            return this.initializeEndAnimation()
-          }
-        }
-
-        if (this.animatorRef?.style)
-          Object.assign(this.animatorRef?.style, {
-            willChange: this.animation_timeline_data.animation_keys.join(","),
-          })
-
-        this.in_range = true
-        this.animation_timeline_data.animation_functions.forEach((v) => {
-          v(scroll_percentage, animatorRef)
-        })
-      })
+      this.initialAnimation(nv)
     },
   },
   unmounted: function () {
