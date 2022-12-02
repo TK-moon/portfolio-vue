@@ -105,7 +105,7 @@ export default defineComponent({
 
       const section_top_position = current_scroll - section_offset_top ?? 0
       const scroll_percentage_with_negative = (section_top_position / section_offset_height) * 100
-      const scroll_percentage = Math.round((100 + scroll_percentage_with_negative) / 2)
+      const scroll_percentage = (100 + scroll_percentage_with_negative) / 2
       return scroll_percentage
     },
     initializeStartAnimation: function () {
