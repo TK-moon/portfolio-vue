@@ -12,10 +12,7 @@ import { useStore } from "vuex"
 
 import Header from "@/views/components/Header.vue"
 
-import "swiper/swiper.scss"
-import "swiper/modules/navigation/navigation.scss"
-import "swiper/modules/pagination/pagination.scss"
-import "swiper/modules/scrollbar/scrollbar.scss"
+import "@splidejs/splide/dist/css/themes/splide-default.min.css"
 
 import { ColorThemeTypes } from "./store/modules/colorTheme"
 

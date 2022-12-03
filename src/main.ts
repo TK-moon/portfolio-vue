@@ -11,6 +11,8 @@ import { faCog, faChevronLeft, faChevronRight, faPaperPlane } from "@fortawesome
 import { faLinkedin, faGithubSquare } from "@fortawesome/free-brands-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome"
 
+import VueSplide from "@splidejs/vue-splide"
+
 library.add(faCog, faChevronLeft, faChevronLeft, faChevronRight, faPaperPlane, faLinkedin, faGithubSquare)
 
 // Import the functions you need from the SDKs you need
@@ -35,4 +37,4 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig)
 getAnalytics(app)
 
-createApp(App).use(store).use(router).component("font-awesome-icon", FontAwesomeIcon).mount("#app")
+createApp(App).use(store).use(router).use(VueSplide).component("font-awesome-icon", FontAwesomeIcon).mount("#app")

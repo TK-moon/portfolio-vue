@@ -29,44 +29,44 @@
               <li>포스티 상품목록 | <Link href="https://posty.kr/categories/871" /></li>
             </ul>
           </article>
-          <CarouselContainer class="project-carousel">
-            <SwiperSlide>
+          <Carousel class="project-carousel">
+            <CarouselItem>
               <img
                 src="@/assets/images/projects/posty/posty-plp-filter-1.png"
                 alt="포스티 프로젝트 이미지 1"
                 loading="lazy"
               />
-            </SwiperSlide>
-            <SwiperSlide>
+            </CarouselItem>
+            <CarouselItem>
               <img
                 src="@/assets/images/projects/posty/posty-plp-filter-2.png"
                 alt="포스티 프로젝트 이미지 2"
                 loading="lazy"
               />
-            </SwiperSlide>
-            <SwiperSlide>
+            </CarouselItem>
+            <CarouselItem>
               <img
                 src="@/assets/images/projects/posty/posty-plp-filter-3.png"
                 alt="포스티 프로젝트 이미지 3"
                 loading="lazy"
               />
-            </SwiperSlide>
-            <SwiperSlide>
+            </CarouselItem>
+            <CarouselItem>
               <img
                 src="@/assets/images/projects/posty/posty-plp-filter-4.png"
                 alt="포스티 프로젝트 이미지 4"
                 loading="lazy"
               />
-            </SwiperSlide>
-            <SwiperSlide>
+            </CarouselItem>
+            <CarouselItem>
               <video controls preload="none" muted poster="@/assets/images/projects/posty/posty-plp-filter-1.png">
                 <source
                   src="https://user-images.githubusercontent.com/59918655/204772931-563a8dcf-7eb1-4b71-a92d-2594576dc425.mp4"
                   type="video/mp4"
                 />
               </video>
-            </SwiperSlide>
-          </CarouselContainer>
+            </CarouselItem>
+          </Carousel>
         </section>
         <section class="project-wrapper">
           <article class="project-contents">
@@ -98,73 +98,73 @@
               <li>환율 차트 | <Link href="https://www.themoin.com/currency/info" /></li>
             </ul>
           </article>
-          <CarouselContainer class="project-carousel">
-            <SwiperSlide>
+          <Carousel class="project-carousel">
+            <CarouselItem>
               <img
                 src="@/assets/images/projects/moin/moin-landing-1.png"
                 alt="모인 랜딩 프로젝트 이미지 1"
                 loading="lazy"
               />
-            </SwiperSlide>
-            <SwiperSlide>
+            </CarouselItem>
+            <CarouselItem>
               <img
                 src="@/assets/images/projects/moin/moin-landing-2.png"
                 alt="모인 랜딩 프로젝트 이미지 2"
                 loading="lazy"
               />
-            </SwiperSlide>
-            <SwiperSlide>
+            </CarouselItem>
+            <CarouselItem>
               <img
                 src="@/assets/images/projects/moin/moin-landing-3.png"
                 alt="모인 랜딩 프로젝트 이미지 3"
                 loading="lazy"
               />
-            </SwiperSlide>
-            <SwiperSlide>
+            </CarouselItem>
+            <CarouselItem>
               <img
                 src="@/assets/images/projects/moin/moin-landing-4.png"
                 alt="모인 랜딩 프로젝트 이미지 4"
                 loading="lazy"
               />
-            </SwiperSlide>
-            <SwiperSlide>
+            </CarouselItem>
+            <CarouselItem>
               <img
                 src="@/assets/images/projects/moin/moin-landing-5.png"
                 alt="모인 랜딩 프로젝트 이미지 5"
                 loading="lazy"
               />
-            </SwiperSlide>
-            <SwiperSlide>
+            </CarouselItem>
+            <CarouselItem>
               <img
                 src="@/assets/images/projects/moin/moin-chart-1.png"
                 alt="모인 차트 프로젝트 이미지 6"
                 loading="lazy"
               />
-            </SwiperSlide>
-            <SwiperSlide>
+            </CarouselItem>
+            <CarouselItem>
               <img
                 src="@/assets/images/projects/moin/moin-chart-2.png"
                 alt="모인 차트 프로젝트 이미지 7"
                 loading="lazy"
               />
-            </SwiperSlide>
-            <SwiperSlide>
+            </CarouselItem>
+            <CarouselItem>
               <video controls preload="none" muted poster="@/assets/images/projects/moin/moin-landing-1.png">
                 <source
                   src="https://user-images.githubusercontent.com/59918655/204769802-1d040e73-cf5b-4d47-b395-d15afe3a1b98.mp4"
                   type="video/mp4"
                 />
               </video>
-            </SwiperSlide>
-            <SwiperSlide>
+            </CarouselItem>
+            <CarouselItem>
               <video controls preload="none" muted poster="@/assets/images/projects/moin/moin-chart-1.png">
                 <source
                   src="https://user-images.githubusercontent.com/59918655/204771114-c2a132c1-7046-44c0-a129-236a2722ceb4.mp4"
                   type="video/mp4"
                 />
               </video>
-            </SwiperSlide>
-          </CarouselContainer>
+            </CarouselItem>
+          </Carousel>
         </section>
         <section class="project-wrapper">
           <article class="project-contents">
@@ -197,22 +197,22 @@
               <li>Github Repository | <Link href="https://github.com/TK-moon/micro-frontend-architecture" /></li>
             </ul>
           </article>
-          <CarouselContainer class="project-carousel">
-            <SwiperSlide>
+          <Carousel class="project-carousel">
+            <CarouselItem>
               <img
                 src="@/assets/images/projects/micro-frontend-architecture/webpack5-logo.png"
                 alt="마이크로 프론트엔드 아키텍쳐 이미지 1"
                 loading="lazy"
               />
-            </SwiperSlide>
-            <SwiperSlide>
+            </CarouselItem>
+            <CarouselItem>
               <img
                 src="@/assets/images/projects/micro-frontend-architecture/micro-frontend-architecture.png"
                 alt="마이크로 프론트엔드 아키텍쳐 이미지 2"
                 loading="lazy"
               />
-            </SwiperSlide>
-          </CarouselContainer>
+            </CarouselItem>
+          </Carousel>
         </section>
       </div>
     </template>
@@ -221,22 +221,22 @@
 
 <script lang="ts">
 import { defineComponent } from "vue"
-import { SwiperSlide } from "swiper/vue/swiper-vue"
 
 import LandingSubPageLayout from "@/layouts/LandingSubPageLayout.vue"
-import CarouselContainer from "@/views/components/Carousel/CarouselContainer.vue"
 import ProjectTag from "@/views/components/ProjectTag.vue"
 import Link from "@/views/components/Link.vue"
-import Swiper from "swiper"
+
+import Carousel from "@/views/components/Carousel/Carousel.vue"
+import CarouselItem from "@/views/components/Carousel/CarouselItem.vue"
 
 export default defineComponent({
   components: {
     LandingSubPageLayout,
-    CarouselContainer,
-    SwiperSlide,
     ProjectTag,
     Link,
-    Swiper,
+
+    Carousel,
+    CarouselItem,
   },
   setup() {
     return {}
@@ -350,6 +350,7 @@ export default defineComponent({
   .project-carousel {
     width: 40%;
     border-radius: 10px;
+    overflow: hidden;
     @include tablet {
       width: 100%;
     }
