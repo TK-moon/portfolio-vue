@@ -17,11 +17,13 @@ import "swiper/modules/navigation/navigation.scss"
 import "swiper/modules/pagination/pagination.scss"
 import "swiper/modules/scrollbar/scrollbar.scss"
 
+import { ColorThemeTypes } from "./store/modules/colorTheme"
+
 export default defineComponent({
   components: { Header },
   setup() {
     const store = useStore()
-    const colorTheme = computed(() => store.state.colorThemeModule.colorTheme)
+    const colorTheme = computed<ColorThemeTypes>(() => store.state.colorThemeModule.colorTheme)
 
     return { colorTheme }
   },

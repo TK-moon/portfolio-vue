@@ -3,7 +3,7 @@
 @import "./keyframes.scss";
 
 .os-theme-mode {
-	@include common;
+	@include common_color;
 	@media (prefers-color-scheme: light) {
 		@include lightmode;
 	}
@@ -13,12 +13,12 @@
 }
 
 .light-mode {
-	@include common;
+	@include common_color;
 	@include lightmode;
 }
 
 .dark-mode {
-	@include common;
+	@include common_color;
 	@include darkmode;
 }
 
