@@ -3,9 +3,12 @@
     disable_multiple_animation
     :animation="[
       { opacity: 0, translate: '0 50' },
+      { opacity: 1, translate: '0 15' },
       { opacity: 1, translate: '0 0' },
+      { opacity: 1, translate: '0 -15' },
       { opacity: 0, translate: '0 -50' },
     ]"
+    :height="200"
     id="about"
   >
     <div>
