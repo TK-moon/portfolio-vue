@@ -59,7 +59,7 @@ const generateScrollAnimationFunctionsByScrollTimeline = (
         if (v.animation.from.opacity > v.animation.to.opacity) {
           const opacity = 1 - section_scroll_percentage / 100
           element.style.opacity = opacity.toString()
-        } else {
+        } else if (v.animation.from.opacity < v.animation.to.opacity) {
           const opacity = section_scroll_percentage / 100
           element.style.opacity = opacity.toString()
         }
