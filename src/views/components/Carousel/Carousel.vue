@@ -1,5 +1,5 @@
 <template>
-  <Splide :options="{ type: 'loop', perMove: 1, lazyLoad: 'nearby' }">
+  <Splide :options="{ type: 'loop', perMove: 1, lazyLoad: 'nearby', flickMaxPages: 1, updateOnMove: true, gap: 20 }">
     <slot></slot>
   </Splide>
 </template>
@@ -27,6 +27,24 @@ export default defineComponent({
   height: 100%;
   box-shadow: 0 5px 10px var(--color-shadow);
   background-color: var(--color-lightgrey);
+
+  .splide__arrows {
+    transition: opacity 200ms ease-in-out;
+    @include mobile {
+      display: none;
+    }
+  }
+  &:hover {
+    .splide__arrows {
+      opacity: 1;
+    }
+  }
+  &:not(:hover) {
+    .splide__arrows {
+      opacity: 0;
+    }
+  }
+
   .splide__track {
     .splide__list {
       .splide__slide {
