@@ -43,7 +43,7 @@
               <img src="@/assets/images/projects/posty/posty-plp-filter-4.png" alt="포스티 프로젝트 이미지 4" />
             </SwiperSlide>
             <SwiperSlide>
-              <video controls>
+              <video controls preload="none" muted poster="@/assets/images/projects/posty/posty-plp-filter-1.png">
                 <source
                   src="https://user-images.githubusercontent.com/59918655/204772931-563a8dcf-7eb1-4b71-a92d-2594576dc425.mp4"
                   type="video/mp4"
@@ -105,7 +105,7 @@
               <img src="@/assets/images/projects/moin/moin-chart-2.png" alt="모인 프로젝트 이미지 7" />
             </SwiperSlide>
             <SwiperSlide>
-              <video controls>
+              <video controls preload="none" muted poster="@/assets/images/projects/moin/moin-landing-1.png">
                 <source
                   src="https://user-images.githubusercontent.com/59918655/204769802-1d040e73-cf5b-4d47-b395-d15afe3a1b98.mp4"
                   type="video/mp4"
@@ -113,7 +113,7 @@
               </video>
             </SwiperSlide>
             <SwiperSlide>
-              <video controls>
+              <video controls preload="none" muted poster="@/assets/images/projects/moin/moin-chart-1.png">
                 <source
                   src="https://user-images.githubusercontent.com/59918655/204771114-c2a132c1-7046-44c0-a129-236a2722ceb4.mp4"
                   type="video/mp4"
