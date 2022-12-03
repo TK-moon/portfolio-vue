@@ -56,7 +56,7 @@ header {
   place-items: center;
   flex-direction: column;
   padding: 0 20px;
-  backdrop-filter: blur(15px);
+  backdrop-filter: blur(10px);
   background-color: var(--header-background-color);
   z-index: 800;
   @include mobile {
