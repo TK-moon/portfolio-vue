@@ -15,7 +15,8 @@ module.exports = {
     loaderOptions: {
       sass: {
         prependData: `
-          @import "@/styles/mixins.scss";
+          @import "@/styles/variables.scss";
+          @import "@/styles/breakpoints.scss";
         `,
       },
     },
