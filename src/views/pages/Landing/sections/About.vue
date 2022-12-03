@@ -8,7 +8,7 @@
       { opacity: 1, translate: '0 -15' },
       { opacity: 0, translate: '0 -50' },
     ]"
-    :height="300"
+    :height="200"
     id="about"
   >
     <div>
