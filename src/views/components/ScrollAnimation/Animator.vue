@@ -101,11 +101,18 @@ export default defineComponent({
       }
       const section_offset_top = this.section_ref.offsetTop
       const section_offset_height = this.section_ref.offsetHeight
-      // const endY = section_offset_top + section_offset_height
 
-      const section_top_position = current_scroll - section_offset_top ?? 0
-      const scroll_percentage_with_negative = (section_top_position / section_offset_height) * 100
-      const scroll_percentage = (100 + scroll_percentage_with_negative) / 2
+      /**
+       * Section이 viewport에 조금이라도 보여질때부터 시작하여야 하기 때문에 window.innerHeight를 빼준다.
+       */
+      const startPosition = section_offset_top - innerHeight
+      const currentPositionBySection = current_scroll - startPosition
+      /**
+       * Section이 viewport에서 전부 사라져야 애니메이션이 끝나기때문에 innerHieht를 더해준다.
+       */
+      const ratio = currentPositionBySection / (section_offset_height + innerHeight)
+
+      const scroll_percentage = ratio * 100
       return scroll_percentage
     },
     initializeStartAnimation: function () {
