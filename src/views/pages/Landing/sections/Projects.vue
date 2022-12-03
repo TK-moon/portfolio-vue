@@ -31,32 +31,16 @@
           </article>
           <Carousel class="project-carousel">
             <CarouselItem>
-              <img
-                src="@/assets/images/projects/posty/posty-plp-filter-1.png"
-                alt="포스티 프로젝트 이미지 1"
-                loading="lazy"
-              />
+              <img src="@/assets/images/projects/posty/posty-plp-filter-1.png" alt="포스티 프로젝트 이미지 1" />
             </CarouselItem>
             <CarouselItem>
-              <img
-                src="@/assets/images/projects/posty/posty-plp-filter-2.png"
-                alt="포스티 프로젝트 이미지 2"
-                loading="lazy"
-              />
+              <img src="@/assets/images/projects/posty/posty-plp-filter-2.png" alt="포스티 프로젝트 이미지 2" />
             </CarouselItem>
             <CarouselItem>
-              <img
-                src="@/assets/images/projects/posty/posty-plp-filter-3.png"
-                alt="포스티 프로젝트 이미지 3"
-                loading="lazy"
-              />
+              <img src="@/assets/images/projects/posty/posty-plp-filter-3.png" alt="포스티 프로젝트 이미지 3" />
             </CarouselItem>
             <CarouselItem>
-              <img
-                src="@/assets/images/projects/posty/posty-plp-filter-4.png"
-                alt="포스티 프로젝트 이미지 4"
-                loading="lazy"
-              />
+              <img src="@/assets/images/projects/posty/posty-plp-filter-4.png" alt="포스티 프로젝트 이미지 4" />
             </CarouselItem>
             <CarouselItem>
               <video controls preload="none" muted poster="@/assets/images/projects/posty/posty-plp-filter-1.png">
@@ -100,53 +84,25 @@
           </article>
           <Carousel class="project-carousel">
             <CarouselItem>
-              <img
-                src="@/assets/images/projects/moin/moin-landing-1.png"
-                alt="모인 랜딩 프로젝트 이미지 1"
-                loading="lazy"
-              />
+              <img src="@/assets/images/projects/moin/moin-landing-1.png" alt="모인 랜딩 프로젝트 이미지 1" />
             </CarouselItem>
             <CarouselItem>
-              <img
-                src="@/assets/images/projects/moin/moin-landing-2.png"
-                alt="모인 랜딩 프로젝트 이미지 2"
-                loading="lazy"
-              />
+              <img src="@/assets/images/projects/moin/moin-landing-2.png" alt="모인 랜딩 프로젝트 이미지 2" />
             </CarouselItem>
             <CarouselItem>
-              <img
-                src="@/assets/images/projects/moin/moin-landing-3.png"
-                alt="모인 랜딩 프로젝트 이미지 3"
-                loading="lazy"
-              />
+              <img src="@/assets/images/projects/moin/moin-landing-3.png" alt="모인 랜딩 프로젝트 이미지 3" />
             </CarouselItem>
             <CarouselItem>
-              <img
-                src="@/assets/images/projects/moin/moin-landing-4.png"
-                alt="모인 랜딩 프로젝트 이미지 4"
-                loading="lazy"
-              />
+              <img src="@/assets/images/projects/moin/moin-landing-4.png" alt="모인 랜딩 프로젝트 이미지 4" />
             </CarouselItem>
             <CarouselItem>
-              <img
-                src="@/assets/images/projects/moin/moin-landing-5.png"
-                alt="모인 랜딩 프로젝트 이미지 5"
-                loading="lazy"
-              />
+              <img src="@/assets/images/projects/moin/moin-landing-5.png" alt="모인 랜딩 프로젝트 이미지 5" />
             </CarouselItem>
             <CarouselItem>
-              <img
-                src="@/assets/images/projects/moin/moin-chart-1.png"
-                alt="모인 차트 프로젝트 이미지 6"
-                loading="lazy"
-              />
+              <img src="@/assets/images/projects/moin/moin-chart-1.png" alt="모인 차트 프로젝트 이미지 6" />
             </CarouselItem>
             <CarouselItem>
-              <img
-                src="@/assets/images/projects/moin/moin-chart-2.png"
-                alt="모인 차트 프로젝트 이미지 7"
-                loading="lazy"
-              />
+              <img src="@/assets/images/projects/moin/moin-chart-2.png" alt="모인 차트 프로젝트 이미지 7" />
             </CarouselItem>
             <CarouselItem>
               <video controls preload="none" muted poster="@/assets/images/projects/moin/moin-landing-1.png">
@@ -202,14 +158,12 @@
               <img
                 src="@/assets/images/projects/micro-frontend-architecture/webpack5-logo.png"
                 alt="마이크로 프론트엔드 아키텍쳐 이미지 1"
-                loading="lazy"
               />
             </CarouselItem>
             <CarouselItem>
               <img
                 src="@/assets/images/projects/micro-frontend-architecture/micro-frontend-architecture.png"
                 alt="마이크로 프론트엔드 아키텍쳐 이미지 2"
-                loading="lazy"
               />
             </CarouselItem>
           </Carousel>
