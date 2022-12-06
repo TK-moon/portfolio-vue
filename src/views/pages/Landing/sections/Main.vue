@@ -1,5 +1,5 @@
 <template>
-  <AnimationSection
+  <VueScrollMotion
     disable_multiple_animation
     :animation="[
       { opacity: 1, translate: '0 0' },
@@ -14,19 +14,19 @@
     </h1>
     <p id="keyword">Web Developer / Frontend</p>
     <p id="hashtags">#반응형 #포트폴리오</p>
-  </AnimationSection>
+  </VueScrollMotion>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue"
 
 import ToggleRadio from "@/views/components/RadioToggle.vue"
-import AnimationSection from "@/views/components/ScrollAnimation/AnimationSection.vue"
+import VueScrollMotion from "vue-scroll-motion"
 
 export default defineComponent({
   components: {
     ToggleRadio,
-    AnimationSection,
+    VueScrollMotion,
   },
   data() {
     return {}

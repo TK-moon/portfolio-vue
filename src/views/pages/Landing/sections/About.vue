@@ -1,5 +1,5 @@
 <template>
-  <AnimationSection
+  <VueScrollMotion
     disable_multiple_animation
     :animation="[
       { opacity: 0, translate: '0 50' },
@@ -27,16 +27,16 @@
       <p>5년이나 했는데도 질리지 않는 걸 보면</p>
       <p>직업을 잘 고른 것 같아요.</p>
     </div>
-  </AnimationSection>
+  </VueScrollMotion>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue"
-import AnimationSection from "@/views/components/ScrollAnimation/AnimationSection.vue"
+import VueScrollMotion from "vue-scroll-motion"
 
 export default defineComponent({
   components: {
-    AnimationSection,
+    VueScrollMotion,
   },
 })
 </script>
