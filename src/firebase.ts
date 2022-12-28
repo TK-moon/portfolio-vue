@@ -1,3 +1,6 @@
+import dotenv from "dotenv"
+dotenv.config()
+
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app"
 import { getFirestore } from "firebase/firestore/lite"
@@ -6,7 +9,7 @@ import { getFirestore } from "firebase/firestore/lite"
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDfXYQcunynFYxtMIAgsUtq1yEkcqACvLQ",
+  apiKey: process.env.VUE_APP_FIREBASE_API_KEY,
   authDomain: "tkmoon-dev-portfolio.firebaseapp.com",
   projectId: "tkmoon-dev-portfolio",
   storageBucket: "tkmoon-dev-portfolio.appspot.com",
