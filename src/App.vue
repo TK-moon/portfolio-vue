@@ -17,14 +17,7 @@ import "@splidejs/splide/dist/css/themes/splide-default.min.css"
 
 import { ColorThemeTypes } from "./store/modules/colorTheme"
 
-import {
-  getDocs,
-  collection,
-  DocumentData,
-  QueryDocumentSnapshot,
-  FirestoreDataConverter,
-  SetOptions,
-} from "firebase/firestore/lite"
+import { getDocs, collection, DocumentData, QueryDocumentSnapshot } from "firebase/firestore/lite"
 
 class Post {
   constructor(readonly title: string) {}
@@ -39,7 +32,7 @@ const converter = {
     return { title: post.title }
   },
   fromFirestore(snapshot: QueryDocumentSnapshot): Post {
-    const data = snapshot.data()!
+    const data = snapshot.data()
     return new Post(data.title)
   },
 }
