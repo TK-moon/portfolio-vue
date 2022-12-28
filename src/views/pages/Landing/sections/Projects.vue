@@ -200,11 +200,6 @@ export default defineComponent({
 
 <style scoped lang="scss">
 .project-container {
-  /* Swiper Bug로 Grid 사용 불가 */
-  /* display: grid;
-  grid-template-columns: 1fr;
-  grid-auto-flow: row;
-  row-gap: 10px; */
   & .project-wrapper {
     margin-bottom: 100px;
     &:last-child {
