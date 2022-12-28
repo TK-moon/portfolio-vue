@@ -169,6 +169,29 @@
           </Carousel>
         </section>
       </div>
+      <div class="sub-project-container">
+        <h2>Sub Projects</h2>
+        <ul>
+          <li>
+            <p class="sub-project-main">
+              Vue Scroll Motion | <Link href="https://www.npmjs.com/package/vue-scroll-motion"></Link>
+            </p>
+            <span class="sub-project-description">
+              포트폴리오 제작에 사용된 스크롤 타임라인 애니메이션 라이브러리 제작
+            </span>
+          </li>
+          <li>
+            <p class="sub-project-main">Svelte Todo | <Link href="https://github.com/TK-moon/svelte-todo"></Link></p>
+            <span class="sub-project-description">Svelte 찍먹</span>
+          </li>
+          <li>
+            <p class="sub-project-main">
+              Solana NFT Viewer | <Link href="https://github.com/TK-moon/solana-nft-viewer"></Link>
+            </p>
+            <span class="sub-project-description">Web3 찍먹</span>
+          </li>
+        </ul>
+      </div>
     </template>
   </LandingSubPageLayout>
 </template>
@@ -200,11 +223,6 @@ export default defineComponent({
 
 <style scoped lang="scss">
 .project-container {
-  /* Swiper Bug로 Grid 사용 불가 */
-  /* display: grid;
-  grid-template-columns: 1fr;
-  grid-auto-flow: row;
-  row-gap: 10px; */
   & .project-wrapper {
     margin-bottom: 100px;
     &:last-child {
@@ -238,7 +256,6 @@ export default defineComponent({
   .project-contents {
     display: flex;
     flex-direction: column;
-    padding: 30px 0;
     color: var(--color-primary-text);
     width: 60%;
     @include tablet {
@@ -305,6 +322,7 @@ export default defineComponent({
     width: 40%;
     border-radius: 10px;
     overflow: hidden;
+    align-self: center;
     @include tablet {
       width: 100%;
     }
@@ -322,6 +340,44 @@ export default defineComponent({
       aspect-ratio: 5 / 4;
       object-position: center;
       object-fit: contain;
+    }
+  }
+}
+
+.sub-project-container {
+  margin-top: 100px;
+  color: var(--color-primary-text);
+
+  h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    @include mobile {
+      font-size: 15px;
+    }
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+    li {
+      list-style: none;
+      margin-bottom: 12px;
+    }
+  }
+
+  .sub-project-main {
+    font-size: 15px;
+    word-break: keep-all;
+    @include mobile {
+      font-size: 12px;
+    }
+  }
+
+  .sub-project-description {
+    font-size: 14px;
+    color: var(--color-secondary-text);
+    @include mobile {
+      font-size: 11px;
     }
   }
 }
