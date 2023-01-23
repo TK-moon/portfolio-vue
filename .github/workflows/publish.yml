@@ -21,20 +21,19 @@ jobs:
           always-auth: true
 
       - name: Cache node modules
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: npm-cache
         with:
-          path: "node_modules"
+          path: "**/node_modules"
           key: ${{ runner.os }}-npm-${{ hashFiles('**/package.lock.json') }}
           restore-keys: |
             ${{ runner.os }}-npm-
 
       - name: Install dependencies
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
+        if: steps.cache.outputs.cache-hit != 'true'
         run: npm install
 
       - name: Build
-        if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: npm run build
 
       - name: Push directory to another repository
