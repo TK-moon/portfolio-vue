@@ -4,7 +4,9 @@
   <div class="modal-grid">
     <ToggleRadio v-model="colorThemeRadio" value="light-mode" name="color-theme"> 라이트 모드 </ToggleRadio>
     <ToggleRadio v-model="colorThemeRadio" value="dark-mode" name="color-theme"> 다크 모드 </ToggleRadio>
-    <ToggleRadio v-model="colorThemeRadio" value="os-theme-mode" name="color-theme"> 기기 테마 </ToggleRadio>
+    <ToggleRadio v-if="os_theme_supported" v-model="colorThemeRadio" value="os-theme-mode" name="color-theme">
+      기기 테마
+    </ToggleRadio>
   </div>
 </template>
 
@@ -29,10 +31,12 @@ export default defineComponent({
   },
   setup() {
     const { colorTheme, setColorTheme } = getColorThemeHandler()
+    const os_theme_supported = window.matchMedia("(prefers-color-scheme: dark)").matches
 
     return {
       colorTheme,
       setColorTheme,
+      os_theme_supported,
     }
   },
   data() {
