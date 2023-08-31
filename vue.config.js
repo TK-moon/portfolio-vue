@@ -1,7 +1,10 @@
+const { defineConfig } = require("@vue/cli-service")
+const NodePolyfillPlugin = require("node-polyfill-webpack-plugin")
 const path = require("path")
 
-module.exports = {
+module.exports = defineConfig({
   configureWebpack: {
+    plugins: [new NodePolyfillPlugin()],
     devtool: "source-map",
     entry: "./src/main.ts",
     resolve: {
@@ -23,4 +26,4 @@ module.exports = {
   },
   publicPath: process.env.NODE_ENV === "production" ? "/portfolio" : "",
   productionSourceMap: false,
-}
+})
