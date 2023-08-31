@@ -15,6 +15,11 @@ Github Action에서 Build 후 https://github.com/TK-moon/portfolio 레포로 빌
 ## Project setup
 
 ```
+node v16.13.1
+typescript 5.1.6
+```
+
+```
 npm install
 ```
 
