@@ -18,7 +18,7 @@ export default defineComponent({})
 .landing-sub-page-layout {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 150px 0;
+  padding: 150px 20px;
   @include tablet {
     padding: 50px 20px;
   }
