@@ -3,6 +3,9 @@
     <transition name="modal">
       <div class="modal-backdrop" @click.self="close" v-if="modelValue">
         <div class="modal-contents">
+          <button class="close-button" @click="close">
+            <font-awesome-icon :icon="['fas', 'xmark']" size="xl" />
+          </button>
           <slot></slot>
         </div>
       </div>
@@ -71,6 +74,7 @@ export default defineComponent({
 }
 
 .modal-contents {
+  position: relative;
   width: 100px;
   height: auto;
   min-width: 320px;
@@ -78,5 +82,12 @@ export default defineComponent({
   padding: 20px;
   background-color: var(--modal-background-color);
   border-radius: 10px;
+}
+
+.close-button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  color: var(--color-primary-text);
 }
 </style>
