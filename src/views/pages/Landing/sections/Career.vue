@@ -32,7 +32,6 @@ export default defineComponent({
         { title: "에이아이비드", contents: "프론트엔드 개발자 (정규직)", datetime: "2019. 03 - 2020. 12" },
         { title: "에이아이비드", contents: "프론트엔드 개발자 (프리랜서)", datetime: "2018. 06 - 2019. 03" },
         { title: "안랩", contents: "QA/QC", datetime: "2017. 11 ~ 2018. 05" },
-        { title: "창성에이스산업", contents: "웹개발자", datetime: "2015. 11 ~ 2016. 02" },
       ],
     }
   },
