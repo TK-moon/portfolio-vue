@@ -12,7 +12,14 @@ import { faLinkedin, faGithubSquare } from "@fortawesome/free-brands-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome"
 
 import VueSplide from "@splidejs/vue-splide"
+import { i18n } from "./i18n"
 
 library.add(faCog, faChevronLeft, faChevronLeft, faChevronRight, faPaperPlane, faLinkedin, faGithubSquare, faXmark)
 
-createApp(App).use(store).use(router).use(VueSplide).component("font-awesome-icon", FontAwesomeIcon).mount("#app")
+createApp(App)
+  .use(store)
+  .use(router)
+  .use(i18n)
+  .use(VueSplide)
+  .component("font-awesome-icon", FontAwesomeIcon)
+  .mount("#app")
